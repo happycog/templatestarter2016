@@ -1,0 +1,173 @@
+
+
+// Abstracted Paragraphs
+// -------------------------------------------
+
+@mixin p {
+  font-family: $alpha-font-family;
+  font-size: rem(11);
+  line-height: rem(15);
+
+  @include media('>large') {
+    font-size: rem(15);
+    line-height: rem(24);
+  }
+  @media print {
+    font-size: rem(12);
+    line-height: rem(15);
+  }
+}
+
+p { @include p; }
+ul { @include p; }
+ol { @include p; }
+dt { @include p; }
+dd { @include p; }
+
+
+// Type defined
+// -------------------------------------------
+
+
+
+
+@mixin type-alpha-xxl() {
+  font-family: $alpha-font-family;
+  font-size: rem(26);
+  line-height: 1;
+  font-weight: normal;
+  @include media('>large') {
+    font-size: rem(32);
+    line-height: rem(36);
+  }
+}
+
+.type-alpha-xxl {
+  @include type-alpha-xxl;
+}
+
+
+@mixin type-alpha-xl() {
+font-family: $alpha-font-family;
+  font-size: rem(26);
+  line-height: 1;
+  font-weight: normal;
+  @include media('>large') {
+    font-size: rem(36);
+    line-height: rem(40);
+  }
+}
+.type-alpha-xl {
+  @include type-alpha-xl;
+}
+@mixin type-alpha-l() {
+  font-family: $alpha-font-family;
+  font-size: rem(22);
+  line-height: rem(26);
+  font-weight: normal;
+  @include media('>large') {
+    font-size: rem(30);
+    line-height: rem(36);
+  }
+}
+.type-alpha-l {
+  @include type-alpha-l;
+}
+@mixin type-alpha-m() {
+  font-family: $alpha-font-family;
+  font-size: rem(18);
+  line-height: rem(22);
+  font-weight: normal;
+  @include media('>large') {
+    font-size: rem(22);
+    line-height: rem(26);
+  }
+}
+.type-alpha-m {
+  @include type-alpha-m;
+}
+
+.type-alpha-m-thin {
+  @include type-alpha-m;
+  font-weight: 300;
+}
+
+@mixin type-alpha-s() {
+  font-family: $alpha-font-family;
+  font-size: rem(16);
+  line-height: rem(20);
+  font-weight: 500;
+  @include media('>large') {
+    font-size: rem(22);
+    line-height: rem(26);
+  }
+}
+
+.type-alpha-s {
+  @include type-alpha-s;
+}
+
+@mixin type-alpha-xs() {
+  font-family: $alpha-font-family;
+  font-size: rem(13);
+  line-height: rem(15);
+  font-weight: 500;
+
+}
+
+.type-alpha-xs-bold-uppercase {
+  @include type-alpha-xs;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+
+
+@mixin type-beta-l() {
+  font-family: $beta-font-family;
+  font-size: rem(18);
+  line-height: rem(24);
+  font-weight: normal;
+}
+
+.type-beta-l {
+  @include type-beta-l;
+}
+
+@mixin type-beta-m() {
+  font-family: $beta-font-family;
+  font-size: rem(13);
+  line-height: rem(16);
+  font-weight: normal;
+  @include media('>large') {
+    font-size: rem(15);
+    line-height: rem(24);
+  }
+}
+
+.type-beta-m {
+  @include type-beta-m;
+}
+
+@mixin type-beta-s() {
+  font-family: $beta-font-family;
+  font-size: rem(11);
+  line-height: rem(14);
+  font-weight: normal;
+  @include media('>large') {
+    font-size: rem(13);
+    line-height: rem(16);
+  }
+}
+.type-beta-s {
+  @include type-beta-s;
+}
+
+@mixin type-beta-xs() {
+  font-family: $beta-font-family;
+  font-size: rem(10);
+  line-height: rem(14);
+}
+.type-beta-xs {
+  @include type-beta-xs;
+}

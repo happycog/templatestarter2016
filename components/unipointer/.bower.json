@@ -1,0 +1,42 @@
+{
+  "name": "unipointer",
+  "main": "unipointer.js",
+  "version": "1.1.0",
+  "dependencies": {
+    "eventEmitter": "~4.2.11",
+    "eventie": "git://github.com/desandro/eventie.git#^1"
+  },
+  "homepage": "https://github.com/metafizzy/unipointer",
+  "authors": [
+    "David DeSandro <desandrocodes@gmail.com>"
+  ],
+  "description": "Do one thing with one pointer",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "pointer",
+    "touch",
+    "mouse"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "package.json"
+  ],
+  "_release": "1.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.1.0",
+    "commit": "48b0420cd58ca6c74dc19d1bdcbe66dd3f1a9ea5"
+  },
+  "_source": "git://github.com/metafizzy/unipointer.git",
+  "_target": "~1.1.0",
+  "_originalSource": "unipointer"
+}

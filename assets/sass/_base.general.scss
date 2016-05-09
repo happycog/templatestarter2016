@@ -1,0 +1,25 @@
+// Set box-sizing to 'border-box', have all elements inherit from html
+// http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+html {
+  background: #fff;
+}
+html,
+body {
+  width: 100vw;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+audio,
+canvas,
+img,
+svg,
+video {
+  vertical-align: middle;
+}

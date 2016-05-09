@@ -1,0 +1,19 @@
+button,
+.button,
+input[type="reset"],
+input[type="submit"],
+input[type="button"] {
+    cursor: pointer;
+    height: rem(33);
+    color: $alpha-button-text-color;
+    background-color: $alpha-button-background-color;
+    min-width: rem(80);
+    border: none;
+    
+
+}
+.beta-button {
+}
+
+.gamma-button {
+}

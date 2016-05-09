@@ -1,0 +1,25 @@
+{
+  "name": "Shopify Dev Exercise",
+  "version": "0.0.1",
+  "homepage": "shopify.dev",
+  "authors": [
+    "Allison Wagner <alliwag@gmail.com>"
+  ],
+  "description": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "/components/"
+  ],
+  "dependencies": {
+    "neat": "~1.7.0",
+    "bourbon": "~4.0.2",
+    "normalize-scss": "~3.0.2",
+    "include-media": "^1.4.2",
+    "sassy-maps": "^0.4.0",
+    "jquery": "~2.2.1",
+    "flickity": "~1.1.2"
+  }
+}

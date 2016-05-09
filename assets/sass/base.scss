@@ -1,0 +1,102 @@
+
+$base-color: #303738;
+$light-gray: #a9a9a9;
+$green: #7ab55c;
+
+$alpha-font-family: #{Helvetica, Arial, "'Droid Sans'", sans-serif};
+$beta-font-family: #{"'Open Sans'", Verdana, Helvetica, Arial, "'Droid Sans'", sans-serif};
+
+
+// Line Height
+// -------------------------------------------
+
+// Access $lh through the lh() function;
+$lh: (
+  mobile: 1.3,
+  desktop: 1.5,
+  super: 27
+);
+
+
+$alpha-text-color: $base-color;
+$beta-text-color: lighten( $base-color, 10% );
+$alpha-link-color: $base-color;
+$alpha-link-color-hover: darken( $base-color, 10% );
+$alpha-divider-color: darken( $base-color, 20% );
+$alpha-border-color: $light-gray;
+$alpha-button-border: darken( $base-color, 20% );
+$alpha-button-background-color: $green;
+$alpha-button-text-color: white;
+$alpha-button-border-color-focus: red;
+$alpha-fill-color: red;
+$beta-fill-color: red;
+$beta-link-color: red;
+$beta-link-color-hover: red;
+$alpha-placeholder-color: $light-gray;
+
+
+
+/*
+*************************************************
+
+Screen Styles
+
+*************************************************
+*/
+
+// HELPERS
+@import 'base.print';
+
+// LIB (CUSTOM FUNCTIONS)
+@import 'config.map-func';
+
+// LIBRARIES
+@import 'sassy-maps/sass/sassy-maps';
+@import 'bourbon/dist/bourbon';
+@import 'config.grid'; // grid config needs to be imported between bourbon and neat
+@import 'neat/app/assets/stylesheets/neat';
+@import 'normalize-scss/_normalize.scss';
+
+// MEDIA QUERIES
+// This must come _after_ the Neat include so we can correctly override the `media`
+// mixin defined by Neat. We'd rather use `include-media` as our MQ library
+@import 'include-media/dist/include-media';
+@import 'config.mediaqueries';
+
+@import 'base.general';
+@import 'base.show-at';
+@import 'base.spacing';
+@import 'base.flex';
+@import 'base.tools';
+@import 'base.type-defaults';
+@import 'base.type-styles';
+@import 'object.buttons';
+@import 'module.longform';
+@import 'module.forms';
+@import 'module.sandbox';
+
+
+@import 'module.header';
+@import 'module.footer';
+
+// LAYOUT
+@import 'layouts/layouts';
+@import 'layouts/layout-full';
+@import 'layouts/layout-split-sidebar';
+@import 'layouts/layout-split-1-2';
+@import 'layouts/layout-split-2';
+@import 'layouts/layout-split-2--20-80';
+@import 'layouts/layout-split-2--75-25';
+@import 'layouts/layout-split-2--25-75';
+@import 'layouts/layout-split-2--33-66';
+@import 'layouts/layout-split-3';
+@import 'layouts/layout-split-4';
+@import 'layouts/layout-split-8';
+
+// Styleguide
+@import 'config.styleguide';
+
+
+// Print CSS tests
+$tests: true;
+@import 'config.mq-test';

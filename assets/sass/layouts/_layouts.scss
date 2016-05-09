@@ -1,0 +1,101 @@
+// -------------------------------------------
+//  Layouts
+// -------------------------------------------
+
+$disable-warnings: true; // disable deprecation warnings in neat
+
+// Page Container
+// -------------------------------------------
+
+
+.page {
+  padding-left: rem(page(mobile));
+  padding-right: rem(page(mobile));
+  overflow: hidden;
+
+  @include media('>large') {
+    padding-left: rem(page(desktop));
+    padding-right: rem(page(desktop));
+  }
+
+  & > * {
+    max-width: $max-width;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// Fixed Gutters
+// -------------------------------------------
+
+@mixin column-gutters() {
+  padding-left: rem(gutter(mobile)/2);
+  padding-right: rem(gutter(mobile)/2);
+
+  @include media('>large') {
+    padding-left: rem(gutter(desktop)/2);
+    padding-right: rem(gutter(desktop)/2);
+
+    &.extra-left-gutter {
+      padding-left: rem(15);
+    }
+    &.extra-right-gutter {
+      padding-right: rem(15);
+    }
+  }
+
+  @include media('>xlarge') {
+    &.extra-large-right-gutter {
+      padding-right: rem(100);
+    }
+  }
+
+  @include media('>xxlarge') {
+    &.extra-left-gutter {
+      padding-left: rem(35);
+    }
+    &.extra-right-gutter {
+      padding-right: rem(35);
+    }
+    &.extra-large-right-gutter {
+      padding-right: rem(250);
+    }
+  }
+}
+
+[class^="layout-"] > .column,
+.column-full {
+  @include column-gutters();
+}
+
+@mixin layout-in-column {
+  margin-left: -1 * rem(gutter(mobile)/2);
+  margin-right: -1 * rem(gutter(mobile)/2);
+
+  @include media('>large') {
+    margin-left: -1 * rem(gutter(desktop)/2);
+    margin-right: -1 * rem(gutter(desktop)/2);
+  }
+}
+
+.column [class^="layout-"],
+.column-full [class^="layout-"] {
+  @include layout-in-column;
+}
+
+
+// mixin for all splits
+@mixin layout-split {
+  @include outer-container;
+
+  & > .column {
+      @include span-columns(1 of 1);
+  }
+
+  @include media('>medium') {
+      & > .column:nth-child(1),
+      & > .column:nth-child(2) {
+          margin-top: 0;
+      }
+  }
+}

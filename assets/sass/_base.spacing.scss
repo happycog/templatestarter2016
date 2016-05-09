@@ -1,0 +1,94 @@
+.spacing {
+  & > * + * {
+    margin-top: rem(verticalSpacing(mobile));
+    @include media('>large') {
+      margin-top: rem(verticalSpacing(desktop));
+    }
+  }
+}
+
+
+.spacing-quarter {
+  & > * + * {
+    margin-top: rem(verticalSpacing(mobile)/4);
+    @include media('>large') {
+      margin-top: rem(verticalSpacing(desktop)/4);
+    }
+  }
+}
+
+.spacing-half {
+  & > * + * {
+    margin-top: rem(verticalSpacing(mobile)/2);
+    @include media('>large') {
+      margin-top: rem(verticalSpacing(desktop)/2);
+    }
+  }
+}
+
+.spacing-one-and-half {
+  & > * + * {
+    margin-top: rem(verticalSpacing(mobile)*1.5);
+    @include media('>large') {
+      margin-top: rem(verticalSpacing(desktop)*1.5);
+    }
+  }
+}
+
+.spacing-double {
+  & > * + * {
+    margin-top: rem(verticalSpacing(mobile)*2);
+    @include media('>large') {
+      margin-top: rem(verticalSpacing(desktop)*2);
+    }
+  }
+}
+
+.spacing-triple {
+  & > * + * {
+    margin-top: rem(verticalSpacing(mobile)*3);
+    @include media('>large') {
+      margin-top: rem(verticalSpacing(desktop)*3);
+    }
+  }
+}
+
+.spacing-quad {
+  & > * + * {
+    margin-top: rem(verticalSpacing(mobile)*4);
+    @include media('>large') {
+      margin-top: rem(verticalSpacing(desktop)*4);
+    }
+  }
+}
+
+.spacing-zero {
+  & > * + * {
+    margin-top: 0;
+  }
+}
+
+
+
+
+
+
+// Horizontal Spacing
+.spacing-quarter--left {
+  margin-left: rem(verticalSpacing(desktop)/4);
+}
+.spacing-quarter--right {
+  margin-right: rem(verticalSpacing(desktop)/4);
+}
+.spacing-half--left {
+  margin-left: rem(verticalSpacing(desktop)/2);
+}
+.spacing-half--right {
+  margin-right: rem(verticalSpacing(desktop)/2);
+}
+.spacing--left {
+  margin-left: rem(verticalSpacing(desktop));
+}
+.spacing--right {
+  margin-right: rem(verticalSpacing(desktop));
+}

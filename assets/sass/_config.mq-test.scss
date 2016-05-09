@@ -1,0 +1,105 @@
+@if $tests == true {
+	body {
+		&:before {
+			display: block;
+			position: fixed;
+			z-index: 100000;
+			background: black;
+			bottom: 0;
+			right: 0;
+			padding: .5em 1em;
+			content: 'No Media Query';
+			color: transparentize(#fff,.25);
+			border-top-left-radius: 10px;
+			font-size: (12/16)+em;
+
+			@media print {
+				display: none;
+			}
+		}
+		&:after {
+			display: block;
+			position: fixed;
+			height: 5px;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			z-index: (100000-1);
+			content: '';
+			background: black;
+
+			@media print {
+				display: none;
+			}
+		}
+
+		@include media('>xsmall') {
+			&:before {
+				content: '$q-xsmall: 300px';
+			}
+			&:before,&:after {
+				background: dodgerblue;
+			}
+		}
+
+		@include media('>small') {
+			&:before {
+				content: '$q-small: 400px';
+			}
+			&:before,
+			&:after {
+				background: darkseagreen;
+			}
+		}
+
+		@include media('>medium') {
+			&:before {
+				content: '$q-medium: 500px';
+			}
+			&:before,
+			&:after {
+				background: lightcoral;
+			}
+		}
+
+		@include media('>large') {
+			&:before {
+				content: '$q-large: 750px';
+			}
+			&:before,
+			&:after {
+				background: mediumvioletred;
+			}
+		}
+
+		@include media('>xlarge') {
+			&:before {
+				content: '$q-xlarge: 950px';
+			}
+			&:before,
+			&:after {
+				background: hotpink;
+			}
+		}
+
+		@include media('>xxlarge') {
+			&:before {
+				content: '$q-xxlarge: 1100px';
+			}
+			&:before,
+			&:after {
+				background: orangered;
+			}
+		}
+
+		@include media('>xxxlarge') {
+			&:before {
+				content: '$q-xxxlarge: 1300px';
+			}
+			&:before,
+			&:after {
+				background: dodgerblue;
+			}
+		}
+	}
+}

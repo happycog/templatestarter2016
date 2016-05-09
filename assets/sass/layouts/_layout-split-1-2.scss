@@ -1,0 +1,63 @@
+.layout-split-1-2 {
+  @include outer-container;
+
+  & > .column {
+    @include span-columns(1 of 1);
+  }
+
+  @include media('>large') {
+    & > .column {
+      @include span-columns(1 of 2);
+      margin-top: 0;
+    }
+  }
+}
+
+/**
+ * Split 1-2 Flex
+ */
+.layout-split-1-2--flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  > .column {
+    @include span-columns(1 of 1);
+    display: flex;
+    width: 100%;
+  }
+  @include media('>medium') {
+    & > .column {
+      @include span-columns(1 of 2);
+      display: flex;
+      margin-top: 0;
+      &:not(:nth-last-child(-n+2)) {
+        margin-bottom: rem(20);
+      }
+    }
+  }
+}
+
+/**
+ * Split two-column layout with hidden second column through $q-large.
+ */
+.layout-split-1-hide2-2 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  & > .column {
+    @include span-columns(1 of 1);
+    width: 100%;
+  }
+  & > .column:nth-child(2) {
+    display: none;
+  }
+  @include media('>large') {
+    & > .column {
+      @include span-columns(7 of 12);
+    }
+    & > .column:nth-child(2) {
+      @include span-columns(5 of 12);
+      display: block;
+    }
+  }
+}

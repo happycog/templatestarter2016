@@ -1,0 +1,455 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var fs = require('fs');
+var path = require('path');
+var stripJsonComments = require('strip-json-comments');
+var async = require('async');
+var glob = require("glob");
+var parseGlob = require('parse-glob');
+var xml = require('xml');
+
+var HTMLHint  = require("../index").HTMLHint;
+var pkg = require('../package.json');
+
+require('colors');
+
+function map(val) {
+    var objMap = {};
+    val.split(',').forEach(function(item){
+        var arrItem = item.split(/\s*=\s*/);
+        objMap[arrItem[0]] = arrItem[1]?arrItem[1]:true;
+    });
+    return objMap;
+}
+
+program.on('--help', function(){
+    console.log('  Examples:');
+    console.log('');
+    console.log('    htmlhint');
+    console.log('    htmlhint www');
+    console.log('    htmlhint www/test.html');
+    console.log('    htmlhint www/**/*.xhtml');
+    console.log('    htmlhint www/**/*.{htm,html}');
+    console.log('    htmlhint --list');
+    console.log('    htmlhint --rules tag-pair,id-class-value=underline test.html');
+    console.log('    htmlhint --config .htmlhintrc test.html');
+    console.log('    htmlhint --ignore **/build/**,**/test/**');
+    console.log('    htmlhint --plugin ./plugins/');
+    console.log('');
+});
+
+program
+    .version(pkg.version)
+    .usage('<file|folder|pattern ...> [options]')
+    .option('-l, --list', 'show all of the rules available')
+    .option('-c, --config <file>', 'custom configuration file')
+    .option('-r, --rules <ruleid, ruleid=value ...>', 'set all of the rules available', map)
+    .option('-p, --plugin <file|folder>', 'load custom rules from file or folder')
+    .option('-f, --format <json|junit|checkstyle>', 'output messages as custom format')
+    .option('-i, --ignore <pattern, pattern ...>', 'add pattern to exclude matches')
+    .parse(process.argv);
+
+if(program.list){
+    listRules();
+    process.exit(0);
+}
+
+var arrTargets = program.args;
+if(arrTargets.length === 0){
+    arrTargets.push('./');
+}
+
+hintTargets(arrTargets, {
+    plugin: program.plugin,
+    ruleset: program.rules,
+    format: program.format,
+    ignore: program.ignore
+});
+
+// list all rules
+function listRules(){
+    var rules = HTMLHint.rules;
+    var rule;
+    console.log('     All rules:');
+    console.log(' ==================================================');
+    for (var id in rules){
+        rule = rules[id];
+        console.log('     %s : %s', rule.id.bold, rule.description);
+    }
+}
+
+function hintTargets(arrTargets, options){
+    var allFileCount = 0;
+    var allHintFileCount = 0;
+    var allHintCount = 0;
+    var startTime = new Date().getTime();
+
+    // load plugins
+    var pluginPath = options.plugin;
+    if(pluginPath){
+        loadPlugins(pluginPath);
+    }
+
+    // custom format
+    var format = options.format;
+    var arrAllMessages = [];
+
+    if(!format){
+        console.log('');
+    }
+    var arrTasks = [];
+    arrTargets.forEach(function(target){
+        arrTasks.push(function(next){
+            hintAllFiles(target, options, function(result){
+                allFileCount += result.targetFileCount;
+                allHintFileCount += result.targetHintFileCount;
+                allHintCount += result.targetHintCount;
+                arrAllMessages = arrAllMessages.concat(result.arrTargetMessages);
+                next();
+            });
+        });
+    });
+    async.series(arrTasks, function(){
+        var spendTime = new Date().getTime() - startTime;
+        // output as custom format
+        if(format){
+            formatResult({
+                arrAllMessages: arrAllMessages,
+                allFileCount: allFileCount,
+                time: spendTime
+            }, format);
+        }
+        else{
+            if(allHintCount > 0){
+                console.log('Scan %d files, found %d errors in %d files (%d ms)'.red, allFileCount, allHintCount, allHintFileCount, spendTime);
+            }
+            else{
+                console.log('Scan %d files, without errors (%d ms).'.green, allFileCount, spendTime);
+            }
+        }
+        process.exit(allHintCount > 0 ? 1: 0);
+    });
+}
+
+// load plugins
+function loadPlugins(pluginPath){
+    pluginPath = pluginPath.replace(/\\/g, '/');
+    if(fs.existsSync(pluginPath)){
+        if(fs.statSync(pluginPath).isDirectory()){
+            pluginPath += /\/$/.test(pluginPath)?'':'/';
+            pluginPath += '**/*.js';
+            var arrFiles = glob.sync(pluginPath, {
+                'dot': false,
+                'nodir': true,
+                'strict': false,
+                'silent': true
+            });
+            arrFiles.forEach(function(file){
+                loadPlugin(file);
+            });
+        }
+        else{
+            loadPlugin(pluginPath);
+        }
+    }
+}
+
+function loadPlugin(filepath){
+    filepath = path.resolve(filepath);
+    try{
+        var plugin = require(filepath);
+        plugin(HTMLHint);
+    }
+    catch(e){}
+}
+
+// output as custom format
+function formatResult(hintInfo, format){
+    switch(format){
+        case 'json':
+            console.log(JSON.stringify(hintInfo.arrAllMessages));
+            break;
+        case 'junit':
+            formatJunit(hintInfo);
+            break;
+        case 'checkstyle':
+            formatCheckstyle(hintInfo);
+            break;
+        default:
+            console.log('No supported format, supported format:json, junit, checkstyle.'.red);
+            process.exit(1);
+    }
+}
+
+// format as junit
+function formatJunit(hintInfo){
+    var arrTestcase = [];
+    var arrAllMessages = hintInfo.arrAllMessages;
+    arrAllMessages.forEach(function(fileInfo){
+        var arrMessages = fileInfo.messages;
+        var arrLogs = HTMLHint.format(arrMessages);
+        arrTestcase.push({
+            testcase: [
+                {
+                  _attr: {
+                    name: fileInfo.file,
+                    time: (fileInfo.time / 1000).toFixed(3)
+                  }
+                },
+                {
+                    failure: {
+                        _attr: {
+                            message: 'Found '+arrMessages.length+' errors'
+                        },
+                        _cdata: arrLogs.join('\r\n')
+                    }
+                }
+            ]
+        });
+    });
+    var objXml = {
+        testsuites: [
+            {
+                testsuite: [
+                    {
+                      _attr: {
+                        name: 'HTMLHint Tests',
+                        time: (hintInfo.time / 1000).toFixed(3),
+                        tests: hintInfo.allFileCount,
+                        failures: arrAllMessages.length
+                      }
+                    }
+                ].concat(arrTestcase)
+            }
+        ]
+    };
+    console.log(xml(objXml, {
+        declaration: true,
+        indent: '    '
+    }));
+}
+
+// format as checkstyle
+function formatCheckstyle(hintInfo){
+    var arrFiles = [];
+    var arrAllMessages = hintInfo.arrAllMessages;
+    arrAllMessages.forEach(function(fileInfo){
+        var arrMessages = fileInfo.messages;
+        var arrErrors = [];
+        arrMessages.forEach(function(message){
+            arrErrors.push({
+                error: {
+                    _attr: {
+                        line: message.line,
+                        column: message.col,
+                        severity: message.type,
+                        message: message.message,
+                        source: 'htmlhint.'+message.rule.id
+                    }
+                }
+            });
+        });
+        arrFiles.push({
+            file: [
+                {
+                    _attr: {
+                        name: fileInfo.file
+                    }
+                }
+            ].concat(arrErrors)
+        });
+    });
+    var objXml = {
+        checkstyle: [
+            {
+              _attr: {
+                version: '4.3'
+              }
+            }
+        ].concat(arrFiles)
+    };
+    console.log(xml(objXml, {
+        declaration: true,
+        indent: '    '
+    }));
+}
+
+// hint all files
+function hintAllFiles(target, options, onFinised){
+    var globInfo = getGlobInfo(target);
+    globInfo.ignore = options.ignore;
+
+    // hint count
+    var targetFileCount = 0;
+    var targetHintFileCount = 0;
+    var targetHintCount = 0;
+
+    // custom format
+    var format = options.format;
+    var arrTargetMessages = [];
+
+    // init ruleset
+    var ruleset = options.ruleset;
+    if(ruleset === undefined){
+        ruleset = getConfig(program.config, globInfo.base, format);
+    }
+
+    // hint queue
+    var hintQueue = async.queue(function (filepath, next) {
+        var startTime = new Date().getTime();
+        var messages = hintFile(filepath, ruleset);
+        var spendTime = new Date().getTime() - startTime;
+        var hintCount = messages.length;
+        if(hintCount > 0){
+            if(format){
+                arrTargetMessages.push({
+                    'file': filepath,
+                    'messages': messages,
+                    'time': spendTime
+                });
+            }
+            else{
+                console.log('   '+filepath.white);
+                var arrLogs = HTMLHint.format(messages, {
+                    colors: true,
+                    indent: 6
+                });
+                arrLogs.forEach(function(str){
+                    console.log(str);
+                });
+                console.log('');
+            }
+            targetHintFileCount ++;
+            targetHintCount += hintCount;
+        }
+        targetFileCount ++;
+        setImmediate(next);
+    }, 10);
+    // start hint
+    var isWalkDone = false;
+    var isHintDone = true;
+    walkPath(globInfo, function(filepath){
+        isHintDone = false;
+        hintQueue.push(filepath);
+    }, function(){
+        isWalkDone = true;
+        checkAllHinted();
+    });
+    hintQueue.drain = function() {
+        isHintDone = true;
+        checkAllHinted();
+    };
+    function checkAllHinted(){
+        if(isWalkDone && isHintDone){
+            onFinised({
+                targetFileCount: targetFileCount,
+                targetHintFileCount: targetHintFileCount,
+                targetHintCount: targetHintCount,
+                arrTargetMessages: arrTargetMessages
+            });
+        }
+    }
+}
+
+// split target to base & glob
+function getGlobInfo(target){
+    // fix windows sep
+    target = target.replace(/\\/g, '/');
+    var globInfo = parseGlob(target);
+    var base = globInfo.base;
+    base += /\/$/.test(base) ? '' : '/';
+    var pattern = globInfo.glob;
+    var globPath = globInfo.path;
+    var defaultGlob = '*.{htm,html}';
+    if(globInfo.is.glob === true){
+        // no basename
+        if(globPath.basename === ''){
+            pattern += defaultGlob;
+        }
+    }
+    else{
+        // no basename
+        if(globPath.basename === ''){
+            pattern += '**/' + defaultGlob;
+        }
+        // detect directory
+        else if(fs.existsSync(target) && fs.statSync(target).isDirectory()){
+            base += globPath.basename + '/';
+            pattern = '**/' + defaultGlob;
+        }
+    }
+    return {
+        base: base,
+        pattern: pattern
+    };
+}
+
+// search and load config
+function getConfig(configFile, base, format){
+    if(configFile === undefined && fs.existsSync(base)){
+        // find default config file in parent directory
+        if(fs.statSync(base).isDirectory() === false){
+            base = path.dirname(base);
+        }
+        while(base){
+            var tmpConfigFile = path.resolve(base+path.sep, '.htmlhintrc');
+            if(fs.existsSync(tmpConfigFile)){
+                configFile = tmpConfigFile;
+                break;
+            }
+            base = base.substring(0,base.lastIndexOf(path.sep));
+        }
+    }
+
+    if(fs.existsSync(configFile)){
+        var config = fs.readFileSync(configFile, 'utf-8'),
+            ruleset;
+        try{
+            ruleset = JSON.parse(stripJsonComments(config));
+            if(!format){
+                console.log('   Config loaded: %s', configFile.cyan);
+                console.log('');
+            }
+        }
+        catch(e){}
+        return ruleset;
+    }
+}
+
+// walk path
+function walkPath(globInfo, callback, onFinish) {
+    var base = globInfo.base;
+    var pattern = globInfo.pattern;
+    var ignore = globInfo.ignore;
+    var arrIgnores = ['**/node_modules/**'];
+    if(ignore){
+        ignore.split(',').forEach(function(pattern){
+            arrIgnores.push(pattern);
+        });
+    }
+    var walk = glob(pattern, {
+        'cwd': base,
+        'dot': false,
+        'ignore': arrIgnores,
+        'nodir': true,
+        'strict': false,
+        'silent': true
+    },function() {
+        onFinish();
+    });
+    walk.on('match', function(file){
+        base = base.replace(/^.\//, '');
+        callback(base + file);
+    });
+}
+
+// hint file
+function hintFile(filepath, ruleset){
+    var content = '';
+    try{
+        content = fs.readFileSync(filepath, 'utf-8');
+    }
+    catch(e){}
+    return HTMLHint.verify(content, ruleset);
+}

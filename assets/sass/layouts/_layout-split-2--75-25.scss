@@ -1,0 +1,16 @@
+// $q-medium below = 1 Column
+// $q-medium above = 2 Columns - 75/25% split
+
+.layout-split-2--75-25 {
+    @include layout-split;
+
+    @include media('>medium') {
+        & > .column:nth-child(1) {
+          @include span-columns(3 of 4);
+        }
+
+        & > .column:nth-child(2) {
+          @include span-columns(1 of 4);
+        }
+    }
+}

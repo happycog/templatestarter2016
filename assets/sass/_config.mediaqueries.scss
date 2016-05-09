@@ -1,0 +1,11 @@
+// uses px width / base font width to return a value in em units
+
+$breakpoints: (
+  xsmall:  ((300 / 16) * 1em),
+  small:   ((400 / 16) * 1em),
+  medium:  ((500 / 16) * 1em),
+  large:   ((750 / 16) * 1em),
+  xlarge:  ((950 / 16) * 1em),
+  xxlarge: ((1100 / 16) * 1em),
+  xxxlarge: ((1300 / 16) * 1em)
+);

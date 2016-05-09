@@ -1,0 +1,34 @@
+.layout-split-8 {
+	@include outer-container;
+
+	& > .column {
+		@include span-columns(1 of 1);
+	}
+
+	@include media('>medium', '<xlarge') {
+		& > .column {
+			@include span-columns(1 of 4);
+			@include omega(4n);
+		}
+	}
+
+	@include media('>xlarge') {
+		& > .column {
+			@include span-columns(1 of 8);
+			@include omega(8n);
+		}
+	}
+
+	@media print {
+		& > .column {
+			@include span-columns(1 of 4);
+			@include omega(4n);
+		}
+		@include media('>xlarge') {
+			& > .column {
+				@include span-columns(1 of 8);
+				@include omega(8n);
+			}
+		}
+	}
+}

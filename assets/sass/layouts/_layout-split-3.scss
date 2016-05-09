@@ -1,0 +1,86 @@
+.layout-split-3 {
+    @include outer-container;
+    & > .column {
+        @include span-columns(1 of 1);
+    }
+    @include media('>medium') {
+        & > .column:nth-child(1),
+        & > .column:nth-child(2),
+        & > .column:nth-child(3) {
+            margin-top: 0;
+        }
+        & > .column {
+            @include span-columns(1 of 3);
+            @include omega(3n);
+        }
+    }
+    @media print {
+        & > .column:nth-child(1),
+        & > .column:nth-child(2) {
+            margin-top: 0;
+        }
+        & > .column {
+            @include span-columns(1 of 2);
+            @include omega(2n);
+        }
+    }
+}
+
+.layout-small-screen-has-lead { // built for layout-split-3
+    & > .column:nth-child(1) {
+        padding-bottom: rem(verticalSpacing(mobile))*1.5;
+        margin-bottom: rem(verticalSpacing(mobile))*1.5;
+        @include media('>medium') {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+    }
+    & > .column:nth-child(2) .media-block {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @include media('>medium') {
+            display: block;
+        }
+        .media-block-img-wrap {
+            width: 50%;
+            order: 2;
+            @include media('>medium') {
+                width: 100%;
+            }
+        }
+        .media-block-content {
+            padding-right: 10px;
+            width: 50%;
+            @include media('>medium') {
+                padding-right: 0;
+                width: inherit;
+            }
+        }
+    }
+    & > .column:nth-child(3) .media-block {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @include media('>medium') {
+            display: block;
+        }
+        .media-block-img-wrap {
+            width: 50%;
+            @include media('>medium') {
+                width: 100%;
+            }
+        }
+        .media-block-content {
+            padding-left: 10px;
+            width: 50%;
+            order: 2;
+            @include media('>medium') {
+                padding-right: 0;
+                width: inherit;
+            }
+        }
+
+    }
+}

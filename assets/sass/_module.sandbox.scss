@@ -1,0 +1,33 @@
+
+
+
+.page-wrap {
+  max-width: rem(650);
+  margin: 0 auto;
+  padding-top: rem(30);
+  @include media('>large') {
+    padding-top: rem(100);
+  }
+}
+
+.form-single-input {
+  
+}
+
+
+
+.heading-adorn {
+  position: relative;
+  padding-bottom: rem(20);
+  &:after {
+    content:"";
+    display: block;
+    height: rem(2);
+    width: rem(30);
+    position: absolute;
+    bottom: 0;
+    margin-left: rem(-15);
+    left: 50%;
+    background-color: $green;
+  }
+}

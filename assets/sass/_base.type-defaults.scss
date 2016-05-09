@@ -1,0 +1,139 @@
+// -------------------------------------------
+//  Typography Defaults
+// -------------------------------------------
+
+html {
+  color: $alpha-text-color;
+  font-family: $beta-font-family;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+// Base Block Styles
+// -------------------------------------------
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  hyphens: auto;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+
+  li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+hr {
+  height: 0;
+  -webkit-margin-before: 0; // who knows, but webkit requires these to really zero out a HR
+  -webkit-margin-after: 0; // who knows, but webkit requires these to really zero out a HR
+}
+
+// Base Inline Styles
+// -------------------------------------------
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+b {
+  font-weight: normal;
+}
+
+i {
+  font-style: none;
+}
+
+q {
+  &:before {
+    content: '“';
+  }
+  &:after {
+    content: '”';
+  }
+
+  q {
+    &:before {
+      content: '‘';
+    }
+    &:after {
+      content: '’';
+    }
+  }
+}
+
+cite {
+  font-style: normal;
+}
+
+dt + dd {
+  margin-top: 0;
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  margin-left: 0.5em;
+}
+// Rules
+// -------------------------------------------
+hr {
+  border: none;
+  border-top: 1px solid $alpha-divider-color;
+}
+// Block Elements
+pre {
+  font-family: font(code);
+}
+
+// Inline Text
+// -------------------------------------------
+
+
+sup {
+  h1 &,
+  h2 &,
+  h3 &,
+  h4 &,
+  h5 &,
+  h6 & {
+    font-size: 60%;
+    top: -0.475em;
+  }
+}
+code {
+  font-size: 0.85em;
+  line-height: inherit;
+  background: transparentize(gray, 0.85);
+  border: 1px solid transparentize(gray, 0.5);
+  color: #ca2657;
+  padding-left: 0.125em;
+  padding-right: 0.125em;
+  border-radius: 3px;
+  font-family: font(code);
+}
+cite {
+  font-weight: normal;
+}
+
+a {
+  color: $alpha-link-color;
+  transition: all 0.25s ease;
+  &:hover,
+  &:focus {
+    color: $alpha-link-color-hover;
+  }
+}

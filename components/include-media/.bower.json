@@ -1,0 +1,41 @@
+{
+  "name": "include-media",
+  "version": "1.4.2",
+  "homepage": "https://github.com/eduardoboucas/import-media",
+  "authors": [
+    "Eduardo Boucas <mail@eduardoboucas.com>"
+  ],
+  "description": "Simple, elegant and maintainable media queries in Sass",
+  "main": "dist/_include-media.scss",
+  "keywords": [
+    "breakpoint",
+    "breakpoints",
+    "media",
+    "queries",
+    "media-queries",
+    "media-query",
+    "mediaquery",
+    "sass",
+    "scss",
+    "rwd",
+    "responsive",
+    "css"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "1.4.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.4.2",
+    "commit": "804c24eddcbe0f0624696d251b4d3334e0cf33ff"
+  },
+  "_source": "git://github.com/eduardoboucas/include-media.git",
+  "_target": "^1.4.2",
+  "_originalSource": "include-media"
+}

@@ -1,0 +1,45 @@
+/*-------------------------------------------
+    Grid Settings for Neat Grids
+    http://neat.bourbon.io
+
+    The neat documentation recommends a dedicated grid settings file for
+    grid configuration.
+-------------------------------------------*/
+
+$column: 90px;
+$gutter: 10px;
+$grid-columns: 12;
+$max-width: em(1262);
+
+
+// Legacy Grid Implementation
+// -------------------------------------------
+
+$legacy-grid-support: false; // Grid support for legacy browsers
+$fixed-gutters: true; // Set to to false for percentaged based gutters
+
+@if $fixed-gutters == true {
+	$gutter: 0px;
+}
+
+
+// uses page(key) function
+$page: (
+	mobile: 10,
+	desktop: 25
+);
+
+
+// uses gutter(key) function
+$gutters: (
+	mobile: 10,
+	desktop: 10,
+	super: 10
+);
+
+
+// uses verticalSpacing(key) function
+$verticalSpacing: (
+  mobile: 10,
+  desktop: 20
+);

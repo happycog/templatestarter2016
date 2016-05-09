@@ -1,0 +1,7 @@
+.layout-full {
+	@include outer-container;
+
+	& > .column {
+		@include span-columns(1 of 1);
+	}
+}

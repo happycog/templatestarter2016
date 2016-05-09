@@ -1,0 +1,31 @@
+.layout-split-2--20-80 {
+	@include outer-container;
+
+	& > .column {
+		@include span-columns(1 of 1);
+	}
+
+	@include media('>large') {
+		& > .column {
+			@include span-columns(1 of 5);
+      @include omega(2n);
+			margin-top: 0;
+		}
+
+		& > .column:nth-child(2) {
+			@include span-columns(4 of 5);
+		}
+	}
+
+	@media print {
+    & > .column {
+			@include span-columns(1 of 5);
+      @include omega(2n);
+			margin-top: 0;
+		}
+
+		& > .column:nth-child(2) {
+			@include span-columns(4 of 5);
+		}
+	}
+}

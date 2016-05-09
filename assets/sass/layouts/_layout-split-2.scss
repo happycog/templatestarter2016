@@ -1,0 +1,28 @@
+.layout-split-2 {
+  @include outer-container;
+
+  & > .column {
+    @include span-columns(1 of 1);
+  }
+  @include media('>medium') {
+    & > .column:nth-child(1),
+    & > .column:nth-child(2) {
+      margin-top: 0;
+    }
+    & > .column {
+      @include span-columns(1 of 2);
+      @include omega(2n);
+    }
+  }
+  @media print {
+    & > .column:nth-child(1),
+    & > .column:nth-child(2) {
+      @include span-columns(1 of 2);
+      margin-top: 0;
+    }
+    & > .column {
+      @include span-columns(1 of 2);
+      @include omega(2n);
+    }
+  }
+}

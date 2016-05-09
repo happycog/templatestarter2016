@@ -1,0 +1,192 @@
+// put tool's classes in here
+// to be applied directly to the element, should be more powerful then default styling
+.cursor-pointer {
+  cursor: pointer;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.hide {
+  display: none!important;
+}
+.relative {
+  position: relative;
+}
+.line {
+  display: block;
+}
+.float-right {
+  float: right;
+}
+.float-left {
+  float: left;
+}
+.clear-both {
+  clear: both;
+}
+
+.clearfix:after {
+    content:"";
+    display:table;
+    clear:both;
+}
+.full-width {
+  width: 100%;
+}
+.vertical-align-middle {
+  vertical-align: middle;
+}
+.vertical-align-bottom {
+  vertical-align: bottom;
+}
+.overflow-y {
+  overflow-y: hidden;
+}
+.text-align-center {
+  text-align: center;
+}
+.text-align-left {
+  text-align: left;
+}
+.text-align-right {
+  text-align: right;
+}
+.display-inline-block {
+  display: inline-block;
+}
+.font-weight-normal {
+  font-weight: normal;
+}
+.font-weight-bold {
+  font-weight: 700;
+}
+.text-decoration-underline {
+  text-decoration: underline;
+}
+.text-decoration-none {
+  text-decoration: none;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+.round {
+  border-radius: 50%;
+}
+.white-space-nowrap {
+  white-space: nowrap;
+}
+@mixin visuallyhidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+.visuallyhidden {
+  @include visuallyhidden;
+}
+
+
+
+.alpha-link-color {
+  color: $alpha-link-color;
+  &:hover,
+  &:focus {
+    color: $alpha-link-color-hover;
+  }
+}
+.beta-link-color {
+  color: $beta-link-color;
+  &:hover,
+  &:focus {
+    color: $beta-link-color-hover;
+  }
+}
+
+.alpha-text-color {
+  color: $alpha-text-color;
+}
+.beta-text-color {
+  color: $beta-text-color;
+}
+
+
+
+// Borders
+.alpha-border {
+  border: 1px solid $alpha-border-color;
+}
+
+.alpha-border-border-top {
+  border-top: 2px solid $alpha-border-color;
+}
+.border-top--s {
+  border-top: 1px solid $alpha-border-color;
+}
+.border-bottom,
+.border-bottom-s {
+  border-bottom: 1px solid $alpha-border-color;
+}
+
+.box-shadow-img {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.13);
+}
+.text-shadow {
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.10);
+}
+
+
+
+// Color Fills for SVG
+
+.alpha-fill-color {
+  fill: $alpha-fill-color;
+}
+.beta-fill-color {
+  fill: $beta-fill-color;
+}
+
+.link-with-icon {
+  position: relative;
+  svg {
+    max-width: rem(12);
+    max-height: rem(12);
+    margin-right: rem(10);
+    position: absolute;
+    top: rem(1);
+    @include media('>large') {
+      top: rem(4);
+    }
+  }
+}
+.link-with-icon--rel {
+  svg {
+    position: relative;
+    top: 0;
+  }
+}
+.link-with-icon--xs {
+  svg {
+    max-width: rem(10);
+    max-height: rem(10);
+    margin-right: rem(6);
+    top: rem(2);
+  }
+}
+.link-with-icon__text {
+  padding-left: rem(20);
+  display: inline-block;
+}
+.link-with-icon__text--xs {
+  padding-left: rem(15);
+}
+
+
+.pad { padding: rem(verticalSpacing(mobile)); }
+.pad-half { padding: rem(verticalSpacing(mobile) / 2); }
+.pad-double { padding: rem(verticalSpacing(mobile) * 2); }

@@ -1,0 +1,60 @@
+// function to access $gutters map
+@function gutter($key: mobile) {
+  @if map-has-key($gutters, $key) {
+    @return map-get($gutters, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $gutters.";
+  @return null;
+}
+
+// function to access $verticalSpacing map
+@function verticalSpacing($key: mobile) {
+  @if map-has-key($verticalSpacing, $key) {
+    @return map-get($verticalSpacing, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $verticalSpacing.";
+  @return null;
+}
+
+// function to access $page map
+@function page($key: mobile) {
+  @if map-has-key($page, $key) {
+    @return map-get($page, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $page.";
+  @return null;
+}
+
+// function to access $lh map
+@function lh($key: mobile) {
+  @if map-has-key($lh, $key) {
+    @return map-get($lh, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $lh.";
+  @return null;
+}
+
+
+// function to access $input map
+@function input($key: mobile) {
+  @if map-has-key($input, $key) {
+    @return map-get($input, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $input.";
+  @return null;
+}
+
+// function to access $button map
+@function button($key: mobile) {
+  @if map-has-key($button, $key) {
+    @return map-get($button, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $button.";
+  @return null;
+}

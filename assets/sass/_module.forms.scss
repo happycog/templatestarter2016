@@ -1,0 +1,208 @@
+input[type="checkbox"],
+input[type="radio"] {
+    vertical-align: middle;
+}
+
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    input[type="checkbox"] {
+        margin-right: 10px;
+        cursor: pointer;
+    }
+    label {
+        cursor: pointer;
+    }
+}
+
+fieldset {
+	margin: 0;
+	padding: 0.75em;;
+	border: 1px solid silver;
+}
+
+legend {
+	-webkit-padding-start: 0;
+	-webkit-padding-end: 0;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+.input {
+  &--full {
+    width: 100%;
+  }
+}
+
+select,
+textarea,
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"] {
+  height: rem(33);
+  //@include type-sans-xs;
+  padding: rem(2) rem(7);
+  border: 1px solid $alpha-border-color;
+  background-color: white;
+  transition: box-shadow .15s ease, border .15s ease;
+  box-sizing: border-box;
+  appearance: none;
+  border-radius: rem(2) 0 0 rem(2);
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 3px 1px #c0e0e7;
+  }
+
+  &::-webkit-input-placeholder {
+     color: $alpha-placeholder-color;
+  }
+
+  &:-moz-placeholder { /* Firefox 18- */
+    color: $alpha-placeholder-color;
+  }
+
+  &::-moz-placeholder {  /* Firefox 19+ */
+    color: $alpha-placeholder-color;
+  }
+
+  &:-ms-input-placeholder {
+    color: $alpha-placeholder-color;
+  }
+}
+
+input[type="search"] {
+  -webkit-appearance:none;
+  -webkit-border-radius:0;
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-results-button,
+  &::-webkit-search-decoration,
+  &::-webkit-search-results-decoration {
+    -webkit-appearance:none;
+  }
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  background-color: #fff;
+  border: 1px solid silver;
+  width: 15px;
+  height: 15px;
+}
+
+input[type="month"],
+input[type="time"],
+input[type="week"] {
+  font-family: monospace;
+}
+
+select[disabled],
+textarea[disabled],
+input[type="text"][disabled],
+input[type="email"][disabled],
+input[type="number"][disabled],
+input[type="password"][disabled],
+input[type="search"][disabled],
+input[type="tel"][disabled],
+input[type="url"][disabled],
+input[type="month"][disabled],
+input[type="time"][disabled],
+input[type="week"][disabled],
+input[type="date"][disabled],
+input[type="datetime"][disabled],
+input[type="datetime-local"][disabled] {
+  background: silver;
+  color: lightgray;
+}
+
+
+select[size],
+select[multiple] {
+  height: auto;
+}
+
+textarea {
+  min-height: rem(200);
+}
+
+select[size="0"],
+select[size="1"] {
+  height: 2.5em;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+/**
+ * Line up checkboxs/radios with label text even if label wraps.
+ */
+.input-label-lockup {
+  position: relative;
+  > input {
+    position: absolute;
+    left: 0;
+    top: rem(2);
+  }
+  > label {
+    display: inline-block;
+    padding-left: rem(24);
+  }
+}
+
+label {
+	display: block;
+
+  &.inline {
+    display: inline-block;
+    margin-right: rem(8);
+  }
+
+
+}
+
+select,
+select[size="0"],
+select[size="1"] {
+  //@include font-secondary;
+  padding-right: 2em;
+  border-radius: 0;
+  box-shadow: none;
+  background-repeat: no-repeat;
+  background-image: url(/images/general/arrow-down-gray-dk.svg);
+  background-position: right rem(10) center;
+  background-size: rem(11);
+  font-size: rem(13);
+  line-height: 1.2;
+  height: rem(33);
+}
+
+textarea {
+	width: 100%;
+	height: auto;
+	max-width: 100%;
+}
+
+// Disable cursor on any input thats disabled.
+input[disabled] ~ label {
+  cursor: default;
+}
+
+// Remove default fieldset styles.
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+// Allow only vertical resizing of textareas.
+textarea {
+  resize: vertical;
+}
