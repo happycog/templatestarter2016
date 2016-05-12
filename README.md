@@ -20,15 +20,10 @@ We follow Harry Robert's CSS Guidelines http://cssguidelin.es/
 
 #### Spacing
 
+- See `library.spacing.scss`
 - We're using the lobotomized owl technique for vertical spacing, meaning you should rarely is ever have to add margin-top/margin-bottom on elements for spacing. Instead, please add a class of `.spacing`, `.spacing--half`, `.spacing--double` etc to the elements parents in order to create space between elements. If you have to add a parent div strictly for spacing, that is completely acceptable.
-- We use the variables `` and `$spacing` to keep out 
+- We use the variable `$padding` to keep spacing around objects consistent
 
-
-#### Template Patterns and Layouts
-
-- Template-level mustache file should only include layout classes and organisms and molecules includes within this scaffolding. By and large, molecules and organisms should be a width-agnostic (except if you need to add a `max-width` because the molecule falls apart at full-width).
-- Wherever possible, use `flexbox` for layout
-- Currently leveraging Bourbon's Neat grids (see Grid section below) however exploring a flexbox-only option instead
 
 #### Grid
 
@@ -45,9 +40,9 @@ We follow Harry Robert's CSS Guidelines http://cssguidelin.es/
 
 #### Naming Classes
 
-- Try to extract things you see repeating over and over into classes so you can reuse them for the sake of speed. We use an Expressive CSS approach: class names should be very descriptive and never abbreviated. Follow bem syntax but map to the property/value if only one style is captured. ex. `.text-align--center`, `.position--relative`. Please review the `_tools.scss` partial to see whats written and available for reuse.
+- Try to extract things you see repeating over and over into classes so you can reuse them for the sake of speed. We use an Expressive CSS approach: class names should be very descriptive and never abbreviated. Follow bem syntax but map to the property/value if only one style is captured. ex. `.text-align--center`, `.position--relative`. Please review the `_library.tools.scss` partial to see whats written and available for reuse.
 
 
 #### Classing all the things
 
-- Please use BEM syntax if necessary, leverage utility classes as much as possible.
+- Please use BEM syntax if necessary, leverage expressive classes as much as possible (see `_library.tools.scss`).
