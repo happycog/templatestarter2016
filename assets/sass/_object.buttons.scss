@@ -1,19 +1,94 @@
+/*------------------------------------*\
+    $BUTTONS
+\*------------------------------------*/
 button,
-.button,
-input[type="reset"],
-input[type="submit"],
-input[type="button"] {
-    cursor: pointer;
-    height: rem(33);
-    color: $alpha-button-text-color;
-    background-color: $alpha-button-background-color;
-    min-width: rem(80);
-    border: none;
-    
-
+input[type="submit"] {
+    @include type-alpha--s--bold;
+    display: inline-block;
+    text-align: center;
+    padding: $pad-quarter $pad;
+    text-decoration: none;
+    color: $button-color--alpha--inverse;
+    background-color: transparent;
+    border: rem(2) solid $button-border-color--alpha--inverse;
+    border-radius: rem(4);
+    transition: all 0.25s ease;
+    &:focus,
+    &:hover {
+        color: $button-color-hover--alpha--inverse;
+        border-color: $button-border-color-hover--alpha--inverse;
+        background-color: $button-background-color-hover--alpha--inverse;
+    }
 }
-.beta-button {
+
+.button--alpha {
+    display: inline-block;
+    a {
+        display: inline-block;
+        text-align: center;
+        padding: $pad-quarter $pad;
+        text-decoration: none;
+        color: $button-color--alpha;
+        background-color: transparent;
+        border: rem(2) solid $button-border-color--alpha;
+        border-radius: rem(4);
+        &:focus,
+        &:hover {
+            color: $button-color-hover--alpha;
+            border-color: $button-border-color-hover--alpha;
+            background-color: $button-background-color-hover--alpha;
+        }
+    }
 }
 
-.gamma-button {
+
+.button--beta {
+    display: inline-block;
+    a {
+        display: inline-block;
+        text-align: center;
+        padding: rem(8) $pad;
+        text-decoration: none;
+        color: $white;
+        background-color: $button-background-color--beta;
+        border-radius: rem(4);
+        &:focus,
+        &:hover {
+            color: $button-color-hover--beta;
+            background: $button-background-color-hover--beta;
+        }
+    }
+}
+
+
+
+
+/**
+ * Button sizing
+ */
+ @mixin button--large() {
+    a {
+        display: inline-block;
+        padding: $pad-half $pad;
+    }
+ }
+
+.button--large {
+    @include button--large;
+}
+.button--large--at-medium {
+    @include media('>large') {
+        @include button--large;
+    }
+}
+
+/**
+ * Buttons with icons
+ */
+.button__icon {
+    padding: rem(8);
+    max-width: rem(70);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

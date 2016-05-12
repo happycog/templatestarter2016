@@ -1,7 +1,7 @@
 {
-  "name": "Shopify Dev Exercise",
+  "name": "Happy Cog Template Project Start",
   "version": "0.0.1",
-  "homepage": "shopify.dev",
+  "homepage": "",
   "authors": [
     "Allison Wagner <alliwag@gmail.com>"
   ],
@@ -20,6 +20,5 @@
     "include-media": "^1.4.2",
     "sassy-maps": "^0.4.0",
     "jquery": "~2.2.1",
-    "flickity": "~1.1.2"
   }
 }
