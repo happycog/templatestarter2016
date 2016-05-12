@@ -6,7 +6,7 @@ input[type="submit"] {
     @include type-alpha--s--bold;
     display: inline-block;
     text-align: center;
-    padding: $pad-quarter $pad;
+    padding: $padding-quarter $padding;
     text-decoration: none;
     color: $button-color--alpha--inverse;
     background-color: transparent;
@@ -26,7 +26,7 @@ input[type="submit"] {
     a {
         display: inline-block;
         text-align: center;
-        padding: $pad-quarter $pad;
+        padding: $padding-quarter $padding;
         text-decoration: none;
         color: $button-color--alpha;
         background-color: transparent;
@@ -47,7 +47,7 @@ input[type="submit"] {
     a {
         display: inline-block;
         text-align: center;
-        padding: rem(8) $pad;
+        padding: rem(8) $padding;
         text-decoration: none;
         color: $white;
         background-color: $button-background-color--beta;
@@ -69,7 +69,7 @@ input[type="submit"] {
  @mixin button--large() {
     a {
         display: inline-block;
-        padding: $pad-half $pad;
+        padding: $padding-half $padding;
     }
  }
 

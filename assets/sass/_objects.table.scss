@@ -6,14 +6,14 @@ table {
 th {
   background-color: $background-color--beta;
   text-align: left;
-  padding: $pad-half;
+  padding: $padding-half;
   text-transform: uppercase;
   color: $white;
 }
 
 
 td {
-  padding: $pad-half;
+  padding: $padding-half;
   border-bottom: $border--default;
   color: $text-color--alpha;
 }

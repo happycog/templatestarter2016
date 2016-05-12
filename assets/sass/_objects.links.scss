@@ -150,7 +150,7 @@ a {
 }
 
 .hover--underline {
-    padding-bottom: $pad-quarter;
+    padding-bottom: $padding-quarter;
     border-bottom: 2px solid transparent;
     &:hover {
         border-bottom-color: $white;

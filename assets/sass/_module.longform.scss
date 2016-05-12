@@ -45,7 +45,7 @@
         float: none;
         @include media('>medium') {
             float: left;
-            padding-right: $pad;
+            padding-right: $padding;
         }
     }
     figcaption {
@@ -93,7 +93,7 @@ ol {
     margin-left: 0;
     & > li {
       list-style: none;
-      padding-left: $pad-and-half;
+      padding-left: $padding-and-half;
       &:before {
         content: counter(li, decimal);
         counter-increment: li;
@@ -119,7 +119,7 @@ ul {
     .longform & {
         li {
             list-style: disc;
-            padding-left: $pad-half;
+            padding-left: $padding-half;
             li {
                 list-style-type: circle;
             }

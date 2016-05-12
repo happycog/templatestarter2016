@@ -1,11 +1,13 @@
 ## Happy Cog starter files
- - Does not include Patternlab, can be ported over easily 
+ - Does not include Patternlab, can be ported over easily
 
 ### Coding Style
 
+We follow Harry Robert's CSS Guidelines http://cssguidelin.es/
+
 #### Typography
 
-- Text styles should be defined via classes on elements in the HTML, classes like `.alpha-xxxl`, see text-styles partial in PL for reference.
+- Text styles should be defined via classes on elements in the HTML, classes like `.type-alpha--xxl`
 - Text style classes should _never_ be extended with `@extend` in Sass, in general, please do not use `@extend`
 
 
@@ -18,7 +20,8 @@
 
 #### Spacing
 
-- We're using the lobotomized owl technique for spacing on this project, meaning you should rarely is ever have to add margin-top/margin-bottom on elements for spacing. Instead, please add a class of `.spacing`, `.spacing--half`, `.spacing--double` etc to the elements parents in order to create space between elements. If you have to add a parent div strictly for spacing, that is completely acceptable.
+- We're using the lobotomized owl technique for vertical spacing, meaning you should rarely is ever have to add margin-top/margin-bottom on elements for spacing. Instead, please add a class of `.spacing`, `.spacing--half`, `.spacing--double` etc to the elements parents in order to create space between elements. If you have to add a parent div strictly for spacing, that is completely acceptable.
+- We use the variables `` and `$spacing` to keep out 
 
 
 #### Template Patterns and Layouts

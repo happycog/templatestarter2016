@@ -16,7 +16,7 @@
         display: block;
         background-color: $color--alpha;
         padding-top: rem(70);
-        padding-left: $pad-double;
+        padding-left: $padding-double;
         transition: left .3s ease-in-out;
         .active & {
             transition: left .3s ease-in-out;
@@ -71,7 +71,7 @@
     }
 }
 .primary-nav__list-item {
-    padding: $pad-half;
+    padding: $padding-half;
     @include media('>mlarge') {
         padding: 0;
         margin-left: rem(16);
@@ -160,7 +160,7 @@
     display: block;
     white-space: nowrap;
     font-size: rem(18);
-    padding: $pad-half;
+    padding: $padding-half;
     @include media('>mlarge') {
         padding: 0;
     }
@@ -325,8 +325,8 @@ $slice-height: 3.3;
     }
 }
 .subnavigation__list-item {
-    padding-top: $pad-quarter;
-    padding-bottom: $pad-quarter;
+    padding-top: $padding-quarter;
+    padding-bottom: $padding-quarter;
     @include media('>large') {
         display: inline-block;
         margin-right: $space-and-half;
@@ -429,8 +429,8 @@ $slice-height: 3.3;
     }
 }
 .section__nav__link {
-    padding-top: $pad-half;
-    padding-bottom: $pad-half;
+    padding-top: $padding-half;
+    padding-bottom: $padding-half;
     display: block;
     position: relative;
     &:after {

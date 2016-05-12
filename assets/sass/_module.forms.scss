@@ -92,7 +92,7 @@ input[type="datetime-local"] {
     color: silver;
   }
   &.input--large {
-    padding: rem(8) $pad-half;
+    padding: rem(8) $padding-half;
     height: auto;
   }
 }
@@ -183,7 +183,7 @@ input[type="text"].form__error--style {
 }
 textarea {
   border: $border--default;
-  padding: $pad-half;
+  padding: $padding-half;
   &:focus {
     border: solid 1px $base-color;
   }
@@ -223,5 +223,5 @@ input[type="reset"] {
   background-color: $white;
   border: none;
   color: $base-color;
-  padding-left: $pad-and-half;
+  padding-left: $padding-and-half;
 }
