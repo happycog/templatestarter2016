@@ -18,6 +18,25 @@ We follow Harry Robert's CSS Guidelines http://cssguidelin.es/
 - `module.` is a small block of code that is indivisible
 - `object.` is a collection of modules or a module and other elements
 
+#### Breakpoints
+
+- See `_config.mediaqueries.scss`
+- We're using http://include-media.com/ to handle our media queries. Example usage is
+```
+
+@include media('>large') {
+
+}
+@include media('>=large') {
+
+}
+@include media('<large') {
+
+}
+
+```
+
+
 #### Spacing
 
 - See `library.spacing.scss`
