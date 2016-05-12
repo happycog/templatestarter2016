@@ -1,14 +1,14 @@
 ## Happy Cog starter files
- - Does not include "Patternlab":http://patternlab.io/, can be ported over easily
+ - Does not include [Patternlab](http://patternlab.io/), can be ported over easily
 
 ### Coding Style
 
-We follow Harry Robert's "CSS Guidelines":http://cssguidelin.es/
+We follow Harry Robert's [CSS Guidelines](http://cssguidelin.es/)
 
 
 #### Naming Classes
 
-- Try to extract things you see repeating over and over into classes so you can reuse them for the sake of speed. We use an "Expressive CSS":http://johnpolacek.github.io/expressive-css/ BEM-hybrid approach: class names should be very descriptive and never abbreviated (ex. `.button` not `.btn`). Follow BEM syntax but map to the property/value if only one style is captured. ex. `.text-align--center`, `.position--relative`. Please review the `_library.tools.scss` partial to see whats written and available for reuse.
+- Try to extract things you see repeating over and over into classes so you can reuse them for the sake of speed. We use an [Expressive CSS](http://johnpolacek.github.io/expressive-css/ BEM-hybrid) approach: class names should be very descriptive and never abbreviated (ex. `.button` not `.btn`). Follow BEM syntax but map to the property/value if only one style is captured. ex. `.text-align--center`, `.position--relative`. Please review the `_library.tools.scss` partial to see whats written and available for reuse.
 
 
 #### Naming CSS Partials
@@ -61,6 +61,6 @@ We follow Harry Robert's "CSS Guidelines":http://cssguidelin.es/
 
 #### Typography
 
-- See "Expressive CSS for Type":http://cognition.happycog.com/article/expressive-type-for-css and `_library.type-styles.scss`
+- See [Expressive CSS for Type](http://cognition.happycog.com/article/expressive-type-for-css) and `_library.type-styles.scss`
 - Text styles should be defined once, captured in classes to be applied directly to the elements in the HTML, classes like `.type-alpha--xxl`
 - Text style classes should _never_ be extended with `@extend` in Sass, in general, please do not use `@extend`

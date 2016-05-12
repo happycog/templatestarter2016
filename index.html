@@ -1,16 +1,71 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title></title>
-  <meta name="description" content="">
-  <meta name="author" content="">
+	<meta charset="utf-8">
+
+	<title>Page Title</title>
+
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="public/css/screen.css">
+
 </head>
 <body>
-  <main role="main">
 
-  </main>
-  <script src="public/js/script.min.js"></script>
+	<header role="banner">
+		<nav role="navigation">
+			<ul>
+				<li><a href="#">Page 1</a></li>
+				<li><a href="#">Page 2</a></li>
+				<li><a href="#">Page 3</a></li>
+				<li><a href="#">Page 4</a></li>
+			</ul>
+		</nav>
+
+	</header>
+
+  <div class="layout-split-4-2 page">
+  <main role="main" class="column">
+
+		<h1>Page Heading</h1>
+
+    <p>Use the HTML5 <code>main</code> element to wrap the central content of your page.</p>
+
+		<h2>Page sub-heading</h2>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquam, sem vitae tincidunt lobortis, nibh tellus faucibus elit, sed imperdiet enim mauris eget felis. Donec a varius sapien, at mattis nunc.</p>
+
+    <h2>Sub-heading</h2>
+
+    <ul>
+      <li>List item</li>
+      <li>List item</li>
+      <li>List item</li>
+      <li>List item</li>
+    </ul>
+
+    <h2>Sub-heading</h2>
+
+    <ol>
+      <li>List item</li>
+      <li>List item</li>
+      <li>List item</li>
+      <li>List item</li>
+    </ol>
+
+	</main><!-- End primary page content -->
+  
+	<aside role="complementary" class="column">
+
+		<h3>Secondary page content</h3>
+
+    <p>Use the <code>aside</code> element if you need to include content that is not central to the focus of the page or is clearly of secondary importance.</p>
+
+	</aside>
+
+	<footer role="contentinfo">
+		<div>Page footer content</div>
+	</footer>
 </body>
+<script src="public/js/script.min.js"></script>
 </html>
