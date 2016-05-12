@@ -1,0 +1,41 @@
+/*------------------------------------*\
+    $GENERAL
+\*------------------------------------*/
+
+html {
+  background: #fff;
+}
+html,
+body {
+  width: 100vw;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+audio,
+canvas,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+img, video, object, svg, iframe {
+  max-width: 100%;
+  border: none;
+}
+svg {
+  max-height: 100%;
+}
+figure {
+  max-width: 100%;
+  margin: 0;
+}
+
+figcaption {
+  padding-top: $pad;
+  padding-bottom: $pad;
+}

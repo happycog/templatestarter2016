@@ -1,0 +1,824 @@
+/*------------------------------------*\
+    $SECTIONS
+\*------------------------------------*/
+
+/**
+ * For sections with background colors
+ */
+.section--has-background {
+    padding-top: $pad-and-half;
+    padding-bottom: $pad;
+    @include media('>medium') {
+        padding-top: $pad-double;
+        padding-bottom: $pad-double;
+    }
+    @include media('>large') {
+        padding-top: rem(60);
+        padding-bottom: rem(70);
+    }
+    &.spacing--one-and-half--until-medium {
+        @include media('<medium') {
+          padding-bottom: rem(verticalSpacing(mobile)*1.5);
+          padding-top: rem(verticalSpacing(mobile)*1.5);
+        }
+    }
+}
+
+
+/**
+ * Hero inset
+ */
+.hero__max-width {
+   max-width: rem(1600);
+   margin-left: auto;
+   margin-right: auto;
+}
+.hero__inset {
+    @include media('>medium') {
+        &:before {
+            position: absolute;
+            content: "";
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba($black, .3);
+        }
+    }
+}
+.hero__image {
+    max-height: rem(740);
+    overflow: hidden;
+    object-fit: cover;
+    .sg-main & {
+        position: relative;
+    }
+    img {
+        width: 100%;
+    }
+}
+.hero__inset-content {
+    @include media('>medium') {
+        color: $white;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        transform: translate(0, -50%);
+        z-index: 10;
+        margin-top: 0%;
+        a {
+            color: $white;
+        }
+    }
+}
+
+/**
+ * Top-level Hero
+ */
+.hero__top-level__inner {
+    background-color: $white;
+    @include media('>medium') {
+        display: inline-block;
+        margin: rem(-70) $space-double 0;
+        max-width: rem(800);
+    }
+    @include media('>xlarge') {
+        margin-top: rem(-80);
+    }
+    @include media('>xxlarge') {
+        margin-top: rem(-100);
+    }
+}
+
+/**
+ * How it Works / Event blocks
+ */
+.section__inset-block-title-row {
+    .block__heading {
+        background-color: $gray--light;
+    }
+}
+
+/**
+ * Home Map
+ */
+.section__map {
+    img {
+        opacity: .85;
+    }
+}
+.section__map-cta {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 10;
+    transform: translate(-50%, -50%);
+}
+
+/**
+ * General Branded Band
+ */
+.section__general-branded-band__image {
+    width: 70%;
+    max-width: rem(334);
+    max-height: rem(200);
+    svg{
+    margin-top: rem(-130);
+  }
+}
+
+/**
+ * Promo Panel
+ */
+.section__panel-content {
+    min-height: rem(250);
+    @include media('>large') {
+        min-height: rem(350);
+    }
+}
+.section__panel-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 10;
+}
+
+/**
+ * Promo Band
+ */
+.section__band {
+    @include media('<=medium') {
+        padding-bottom: $pad-double;
+        .section__content {
+            text-align: center;
+        }
+        picture {
+            margin: 0 auto;
+        }
+    }
+}
+.section__band__image {
+    @include media('>medium') {
+        justify-content: center;
+    }
+    @include media('>large') {
+        text-align: right;
+        justify-content: flex-end;
+    }
+    img {
+        max-height: rem(150);
+        @include media('>large') {
+            max-height: rem(250);
+        }
+    }
+}
+
+/**
+ * Instagram Feed
+ */
+.section__instagram__item__inner {
+    display: block;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.section__instagram__cta {
+    &:hover {
+        path {
+            fill: $link-color--alpha;
+        }
+        .section__instagram-feed__cta {
+            color: $link-color--alpha;
+        }
+    }
+}
+.section__instagram-feed__icon {
+    width: rem(20);
+    height: rem(20);
+    margin-bottom: rem(15);
+    @media (min-width: map-get($breakpoints, large)) {
+        width: rem(30);
+        height: rem(30);
+    }
+}
+.section__instagram-feed__cta {
+    line-height: 1;
+}
+
+/**
+ * News Block
+ */
+.news-block__link--padding {
+    @include media('>large'){
+        padding-top: $pad-and-half;
+    }
+}
+
+/**
+ * Branded Promo
+ */
+.branded-promo {
+    padding: $pad-half;
+    position: relative;
+}
+.branded-promo__inner {
+    @include media('>=medium') {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        > * {
+            margin-top: 0;
+        }
+    }
+    @include media('>mlarge') {
+        position: relative;
+    }
+}
+.branded-promo__text {
+    p{@include type-alpha--s--m;}
+    @include media('>medium') {
+        margin-left: $space-half;
+        margin-right: $space-half;
+    }
+    @include media('>large') {
+        margin-left: $space-and-half;
+    }
+    @include media('>mlarge') {
+        margin-right: $space-and-half;
+    }
+}
+.branded-promo__image {
+    max-height: rem(50);
+    @include media('>medium') {
+        display: block;
+    }
+    @include media('>large') {
+        max-height: rem(100);
+    }
+}
+.branded-promo__button {
+    @include media('>medium') {
+      .type-alpha--m--bold {
+        padding-left: rem(5);
+        padding-right: rem(5);
+      }
+    }
+    @include media('>large') {
+      .type-alpha--m--bold {
+        padding-left: rem(20);
+        padding-right: rem(20);
+      }
+    }
+}
+.branded-promo__close {
+    position: absolute;
+    right: rem(10);
+    top: 30%;
+    line-height: 1;
+    svg {
+        height: rem(15);
+        width: rem(15);
+    }
+    @include media('>medium') {
+        right: rem(5);
+        top: 50%;
+        margin-top: -10px;
+    }
+    @include media('>large') {
+        right: rem(10);
+        svg {
+            height: rem(20);
+            width: rem(20);
+        }
+    }
+    @include media('>mlarge') {
+        right: rem(25);
+    }
+}
+
+/*
+ * Pricing Hero
+ */
+.section__pricing-hero__option {
+    @include media('>xlarge') {
+        min-height: rem(400);
+    }
+}
+.section__pricing-hero__cta {
+    @include media('>xlarge') {
+        position: absolute;
+        bottom: rem(verticalSpacing(desktop)*4);
+        z-index: 0;
+    }
+}
+.section__pricing-column {
+    @include media('<medium') {
+        order: 2;
+    }
+}
+.section__pricing-column--best-value {
+    @include media('<medium') {
+        order: 1;
+        margin-top: 0;
+        margin-bottom: rem(verticalSpacing(mobile)*1.5);
+    }
+}
+.section__pricing-hero__note {
+    @include media('>xlarge') {
+        position: absolute;
+        bottom: rem(verticalSpacing(desktop));
+        z-index: 0;
+    }
+}
+.section__pricing-hero--spacediv {
+  @include media('<xlarge') {
+    display: none;
+  }
+    @include media('>=xlarge') {
+      display: block;
+    }
+}
+.section__pricing-hero__longform {
+  p {@include type-alpha--s;}
+
+  ol {
+      counter-reset: li;
+      margin-left: 0;
+      & > li {
+        list-style: none;
+        padding-left: $pad-and-half;
+        &:before {
+          content: counter(li);
+          counter-increment: li;
+          position: absolute;
+          top: rem(-1);
+          left: 0;
+          @include type-alpha--s;
+        }
+      }
+  }
+  ul {
+    list-style: none;
+    padding:0;
+    margin:0;
+    @include type-alpha--s;
+
+      li {
+        color: $white;
+          a{
+            color: $white;
+            &:hover {
+              color: $white;
+              border-bottom: 1px solid $white;
+              cursor: pointer;
+            }
+          }
+
+          &:before {
+            content: '\2794';
+            padding-right:$pad-half;
+            color: $white;
+          }
+      }
+    }
+}
+
+
+/**
+ * Callouts
+ */
+.section__callouts__spec-desc {
+    position: absolute;
+    left: rem(8);
+    bottom: rem(8);
+    z-index: 10;
+    width: rem(140);
+    padding: rem(5);
+    background-color: $white;
+    border-radius: rem(4);
+    @include media('>small') {
+        left: $space;
+        bottom: $space;
+    }
+    @include media('>medium') {
+        left: rem(5);
+        bottom: rem(5);
+    }
+    @include media('>large') {
+        left: $space-half;
+        bottom: $space-half;
+    }
+    @include media('>mlarge') {
+        left: $space;
+        bottom: $space;
+    }
+    @include media('>xlarge') {
+        left: $space;
+        bottom: $space;
+        background-color: transparent;
+    }
+    @include media('>xxlarge') {
+        left: $space-and-half;
+        bottom: $space-and-half;
+    }
+    &:before {
+        content: "\2794";
+        display: block;
+        margin-bottom: rem(5);
+        transform: rotate(-45deg);
+        position: absolute;
+        top: rem(-20);
+        left: 0;
+        width: rem(20);
+        height: rem(20);
+    }
+}
+
+/**
+ * Testimonials
+ */
+.testimonial__quote {
+    @include media('<=medium') {
+        margin-left: 0;
+        margin-right: 0;
+        padding-bottom: $pad-double;
+    }
+}
+
+/**
+ * General Banded
+ */
+.section__general-banded__column {
+    position: relative;
+    @include media('>large') {
+        min-height: rem(350);
+    }
+    @include media('>xlarge') {
+        min-height: rem(420);
+    }
+}
+.section__general-banded__layout {
+    @include media('<=large') {
+        flex-direction: column-reverse;
+    }
+}
+.section__header__general-banded {
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+    padding-bottom: $pad-double;
+    width: 100%;
+    @include media('>medium', '<=large') {
+        padding-left: $pad-double;
+        padding-right: $pad-double;
+    }
+    @include media('>large') {
+        padding-top: $pad-double;
+        max-width: rem(390);
+    }
+}
+.section__general-banded--odd {
+    .section__header__general-banded {
+        @include media('>xlarge') {
+            margin-left: 0;
+        }
+    }
+}
+.section__general-banded__image {
+    padding-top: $pad;
+    padding-bottom: $pad;
+    text-align: center;
+    width: 100%;
+    @include media('>large') {
+        background-repeat: no-repeat;
+        position: absolute;
+        left: 0;
+        height: 100%;
+        background-position: bottom right;
+        overflow: hidden;
+        padding: 0;
+        svg,
+        img {
+            position: absolute;
+            width: auto;
+            height: auto;
+            top: 0;
+            left: 0;
+        }
+    }
+}
+.section__general-banded__svg {
+    svg {
+        display: block;
+    }
+    @include media('<=large') {
+        margin-left: auto;
+        margin-right: auto;
+        svg {
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: rem(30);
+            max-width: rem(350);
+        }
+    }
+    @include media('>large') {
+        svg {
+            left: 50%;
+            transform: translate(-50%, 0);
+            padding-top: rem(60);
+            max-width: rem(450);
+
+        }
+    }
+}
+.section__general-banded--even {
+    .section__general-banded__image {
+        img {
+            left: auto;
+            right: 0;
+        }
+    }
+}
+.img-position--top {
+    @include media('>large') {
+        svg,
+        img {
+            top: 0;
+            bottom: auto;
+        }
+    }
+}
+.img-position--center {
+    @include media('>large') {
+        svg,
+        img {
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding-top: $pad;
+            padding-bottom: $pad;
+        }
+    }
+}
+.img-position--bottom {
+    @include media('>large') {
+        svg,
+        img {
+            top: auto;
+            bottom: 0;
+        }
+    }
+}
+@include media('>xlarge') {
+    .breakout--top,
+    .breakout--bottom {
+        height: calc(100% + 40px);
+    }
+    .breakout--bottom {
+        top: 0;
+    }
+    .breakout--top {
+        bottom: 0;
+    }
+}
+
+/**
+ * Feature block stack
+ */
+.feature-block-item:not(:first-child) {
+    .block__inner {
+        display: flex;
+        justify-content: flex-start;
+    }
+    .block__image-wrap {
+        width: 40%;
+        padding-right: $pad-half;
+        @include media('>medium') {
+            padding-right: $pad-and-half;
+        }
+    }
+    .block__content {
+        margin-top: 0;
+        width: 60%;
+
+        &.no-image {
+          width: 100%;
+        }
+    }
+    .block__heading {
+      margin-top: rem(-5);
+      line-height: rem(28);
+    }
+}
+.feature-block-item:first-child {
+  @include media('>medium', '<xlarge') {
+    .block__inner {
+        display: flex;
+        justify-content: flex-start;
+    }
+    .block__image-wrap {
+        width: 40%;
+        padding-right: $pad-half;
+        @include media('>medium') {
+            padding-right: $pad-and-half;
+        }
+    }
+    .block__content {
+        margin-top: 0;
+        width: 60%;
+    }
+    .block__heading {
+      margin-top: rem(-5);
+      line-height: rem(28);
+    }
+  }
+}
+
+/**
+ * Border for Explore NY center bike guy.
+ */
+.has--biker-divider {
+    position: relative;
+    @include media('>xlarge') {
+        &:after {
+            content: "";
+            position: absolute;
+            right: 0;
+            width: 0;
+            height: 100%;
+            border-right: 2px dashed rgba($black, .2);
+        }
+    }
+}
+.biker-person {
+    width: rem(60);
+    height: rem(130);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    padding-top: $pad-half;
+    background-color: $white;
+    margin-left: rem(-30); // half the width;
+    margin-top: 0;
+    z-index: 10;
+    &.active-biker {
+        position: fixed;
+        top: rem(50);
+    }
+}
+.hide-biker {
+    position: relative;
+    z-index: 20;
+}
+
+.active-biker-scrolling {
+    .path__leg--left {
+        animation: biker-left-leg 1s infinite;
+    }
+    .path__leg--right {
+        animation: biker-right-leg 1s infinite;
+    }
+}
+
+@keyframes biker-left-leg {
+    0% {
+        transform: translate(0, -7px);
+    }
+    50% {
+        transform: translate(0, 3px);
+    }
+    100% {
+        transform: translate(0, -7px);
+    }
+}
+
+@keyframes biker-right-leg {
+    0% {
+        transform: translate(0, 3px);
+    }
+    50% {
+        transform: translate(0, -7px);
+    }
+    100% {
+        transform: translate(0, 3px);
+    }
+}
+
+/**
+ * Error Biker
+ */
+.error-biker  {
+   height: 250px;
+}
+
+/**
+ * How it Works - Rules of the Road - SVGs
+ */
+.svg-trafficSignals {
+    padding-top: rem(70);
+}
+.svg-crosswalk {
+    padding-top: rem(70);
+}
+.svg-personOnBike {
+    @include media('<medium') {
+        margin-top: rem(20);
+    }
+}
+.svg-carAndBike {
+    margin-bottom: rem(10);
+}
+.svg-creditCard svg {
+    height: rem(75);
+    margin-left: rem(40);
+    margin-top: rem(50);
+    @include media('>=medium') {
+        margin-left: 0;
+        margin-top: 0;
+        height: rem(75);
+        position: absolute;
+        bottom: 0;
+        left: rem(45);
+    }
+}
+.step-block__number {
+    @include media('<medium') {
+        margin-top: rem(-40);
+        line-height:rem(48);
+    }
+}
+.svg-takingBike svg {
+    height: rem(95);
+    margin-left: rem(20);
+    margin-top: rem(20);
+    @include media('>=medium') {
+        margin-left: 0;
+        margin-top: 0;
+        height: rem(95);
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+ }
+.svg-ridingBike svg {
+    height: rem(170);
+    margin-left: rem(20);
+    @include media('>=medium') {
+        margin-left: 0;
+        height: rem(160);
+        position: absolute;
+        bottom: 0;
+    }
+}
+.svg-returningBike svg {
+    height: rem(95);
+    margin-left: rem(20);
+    margin-top: rem(20);
+    @include media('>=medium') {
+        margin-left: 0;
+        margin-top: 0;
+        height: rem(95);
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: rem(20);
+    }
+ }
+
+/**
+ * Page-Intro Aside
+ */
+.page-intro--aside-layout {
+  width: 100%;
+  @include media('>=xlarge') {
+    max-width: rem(350);
+    margin-left: auto;
+  }
+}
+
+/**
+ * FAQ Sections
+ */
+.faq__question-section{
+    [data-active-target] {
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
+}
+
+.longform .faq__question-section a:not(.active){
+    &:focus {
+        color: $text-color--beta;
+    }
+}
+
+/**
+ * General Content Social
+ */
+.social-wrapper > * {
+    width: 100%;
+}

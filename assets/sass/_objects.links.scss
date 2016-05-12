@@ -1,0 +1,172 @@
+/*------------------------------------*\
+    $LINKS
+\*------------------------------------*/
+
+a {
+  color: $link-color--alpha;
+  transition: all 0.25s ease;
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    color: $link-color-hover--alpha;
+  }
+  .text-color--gray {
+      &:hover {
+          color: $gray--medium;
+      }
+  }
+}
+
+.link-color--alpha {
+  color: $link-color--alpha;
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    color: $link-color-hover--alpha;
+  }
+}
+.link-color--beta {
+  color: $link-color--beta;
+  &:hover,
+  &:focus {
+    color: $link-color-hover--beta;
+  }
+}
+.link-color--beta-a {
+    a {
+        color: $link-color--beta;
+        &:hover,
+        &:focus {
+            color: $link-color-hover--beta;
+        }
+    }
+}
+.link-color--white-a {
+  a {
+    color: $white;
+    &:hover,
+    &:focus {
+        color: $white;
+    }
+  }
+}
+
+a.text-color--white {
+    color: $white;
+    &:hover {
+        color: darken($white, 15);
+    }
+}
+
+a.text-color--white--white {
+    color: $white;
+    &:hover {
+      color: $white;
+    }
+}
+
+a.text-color--hover--beta {
+    color: $white;
+    &:hover {
+        color: $text-color--beta;
+    }
+}
+
+a.text-color--alpha {
+    &:hover {
+        color: $link-color-hover--alpha;
+    }
+}
+
+
+a.text-color--beta {
+    &:hover {
+        color: $link-color-hover--beta;
+    }
+}
+
+
+a.text-color--gray {
+    &:hover {
+        color: $gray--dark;
+    }
+}
+
+a {
+    .text-color--gray {
+        &:hover {
+            color: $gray--dark;
+        }
+    }
+}
+
+a.text-color--gray--dark {
+    &:hover {
+        color: $gray--medium;
+    }
+}
+
+a {
+
+}
+
+.link-with-icon {
+  position: relative;
+  svg {
+    max-width: rem(12);
+    max-height: rem(12);
+    margin-right: rem(10);
+    position: absolute;
+    top: rem(1);
+    @include media('>large') {
+      top: rem(4);
+    }
+  }
+}
+
+.link-with-icon--rel {
+  svg {
+    position: relative;
+    top: 0;
+  }
+}
+
+.link-with-icon--xs {
+  svg {
+    max-width: rem(10);
+    max-height: rem(10);
+    margin-right: rem(6);
+    top: rem(2);
+  }
+}
+
+.link-with-icon__text {
+  padding-left: rem(20);
+  display: inline-block;
+}
+
+.link-with-icon__text--xs {
+  padding-left: rem(15);
+}
+
+.hover--underline {
+    padding-bottom: $pad-quarter;
+    border-bottom: 2px solid transparent;
+    &:hover {
+        border-bottom-color: $white;
+    }
+}
+
+.link-color--beta-hover {
+  a {
+    color: $text-color--beta;
+    &:hover {
+      color: $text-color--beta;
+    }
+  }
+}
+.link-hover--underline {
+  a:hover {
+    text-decoration: underline;
+  }
+}

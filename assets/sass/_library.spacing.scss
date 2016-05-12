@@ -1,0 +1,349 @@
+/*------------------------------------*\
+    $SPACING
+\*------------------------------------*/
+
+// For more information on this spacing technique, please see:
+// http://alistapart.com/article/axiomatic-css-and-lobotomized-owls.
+
+.spacing {
+  & > * + * {
+    margin-top: rem(verticalSpacing(mobile));
+    @include media('>large') {
+      margin-top: rem(verticalSpacing(desktop));
+    }
+  }
+}
+
+.spacing--until-large {
+  & > * + * {
+    @include media('<=large') {
+      margin-top: rem(verticalSpacing(mobile));
+    }
+  }
+}
+
+.spacing--until-small {
+  & > * + * {
+    @include media('<=small') {
+      margin-top: rem(verticalSpacing(mobile)*2);
+    }
+  }
+}
+
+.spacing--until-medium {
+  & > * + * {
+    @include media('<=medium') {
+      margin-top: rem(verticalSpacing(mobile));
+    }
+  }
+}
+
+.spacing--quarter {
+  & > * + * {
+    margin-top: rem(verticalSpacing(mobile)/4);
+    @include media('>large') {
+      margin-top: rem(verticalSpacing(desktop)/4);
+    }
+  }
+}
+
+.spacing--half {
+  & > * + * {
+    margin-top: rem(verticalSpacing(mobile)/2);
+    @include media('>large') {
+      margin-top: rem(verticalSpacing(desktop)/2);
+    }
+  }
+}
+.spacing--half--until-medium {
+    & > * + * {
+      @include media('<=medium') {
+        margin-top: rem(verticalSpacing(mobile)/2);
+      }
+    }
+}
+
+.spacing--one-and-half {
+  & > * + * {
+    margin-top: rem(verticalSpacing(mobile)*1.5);
+    @include media('>large') {
+      margin-top: rem(verticalSpacing(desktop)*1.5);
+    }
+  }
+}
+
+.spacing--one-and-half--until-large {
+  & > * + * {
+    @include media('<=large') {
+      margin-top: rem(verticalSpacing(mobile)*1.5);
+    }
+  }
+}
+
+.spacing--one-and-half--until-medium {
+  & > * + * {
+    @include media('<=medium') {
+      margin-top: rem(verticalSpacing(mobile)*1.5);
+    }
+  }
+}
+
+.spacing--one-and-half--above-medium {
+  & > * + * {
+    @include media('>=medium') {
+      margin-top: rem(verticalSpacing(mobile)*1.5);
+    }
+  }
+}
+
+.spacing--one-and-half--above-xlarge {
+  & > * + * {
+    @include media('>=xlarge') {
+      margin-top: rem(verticalSpacing(mobile)*1.5);
+    }
+  }
+}
+
+.spacing--double {
+  & > * + * {
+    margin-top: rem(verticalSpacing(mobile)*2);
+    @include media('>large') {
+      margin-top: rem(verticalSpacing(desktop)*2);
+    }
+  }
+}
+.spacing--double--until-large {
+  & > * + * {
+    @include media('<=large') {
+      margin-top: rem(verticalSpacing(desktop)*2);
+    }
+  }
+}
+.spacing--double--until-xlarge {
+  & > * + * {
+    @include media('<=xlarge') {
+      margin-top: rem(verticalSpacing(desktop)*2);
+    }
+  }
+}
+
+.spacing--triple {
+  & > * + * {
+    margin-top: rem(verticalSpacing(mobile)*3);
+    @include media('>large') {
+      margin-top: rem(verticalSpacing(desktop)*3);
+    }
+  }
+}
+.spacing--triple--until-large {
+  & > * + * {
+    @include media('<=large') {
+      margin-top: rem(verticalSpacing(mobile)*3);
+    }
+  }
+}
+
+.spacing--quad {
+  & > * + * {
+    margin-top: rem(verticalSpacing(mobile)*4);
+    @include media('>large') {
+      margin-top: rem(verticalSpacing(desktop)*4);
+    }
+  }
+}
+
+.spacing--zero {
+  & > * + * {
+    margin-top: 0;
+  }
+}
+
+.spacing--bottom {
+    margin-bottom: rem(verticalSpacing(mobile));
+    @include media('>large') {
+        margin-bottom: rem(verticalSpacing(desktop));
+    }
+}
+
+.spacing--bottom-half {
+    margin-bottom: rem(verticalSpacing(mobile)/2);
+    @include media('>large') {
+        margin-bottom: rem(verticalSpacing(desktop)/2);
+    }
+}
+
+.spacing--bottom-double {
+    margin-bottom: rem(verticalSpacing(mobile)*2);
+    @include media('>large') {
+        margin-bottom: rem(verticalSpacing(desktop)*2);
+    }
+}
+.spacing--top-double {
+  margin-top: rem(verticalSpacing(mobile)*2);
+  @include media('>large') {
+      margin-top: rem(verticalSpacing(desktop)*2);
+  }
+}
+
+.no-spacing--after-xlarge {
+    @include media('>xlarge') {
+        margin-top: 0;
+    }
+}
+
+
+/**
+ * Horizontal Spacing
+ */
+.spacing--quarter-left {
+  margin-left: rem(horizontalSpacing(desktop)/4);
+}
+.spacing--quarter-right {
+  margin-right: rem(horizontalSpacing(desktop)/4);
+}
+.spacing--half-left {
+  margin-left: rem(horizontalSpacing(desktop)/2);
+}
+.spacing--half-right {
+  margin-right: rem(horizontalSpacing(desktop)/2);
+}
+.spacing--left {
+  margin-left: rem(horizontalSpacing(desktop));
+}
+
+.spacing--left--until-large {
+    @include media('<large') {
+        margin-left: rem(horizontalSpacing(desktop));
+    }
+}
+
+.spacing--left--until-xxlarge {
+  @include media('<xxlarge') {
+      margin-left: rem(horizontalSpacing(desktop));
+  }
+}
+.spacing--right {
+  margin-right: rem(horizontalSpacing(desktop));
+}
+.spacing--double-left {
+  margin-left: rem(horizontalSpacing(desktop)*2);
+}
+.spacing--triple-left {
+  margin-left: rem(horizontalSpacing(desktop)*3);
+}
+.spacing--quad-left {
+  margin-left: rem(horizontalSpacing(desktop)*4);
+}
+.spacing--double-right {
+  margin-right: rem(horizontalSpacing(desktop)*2);
+}
+.spacing--triple-right {
+  margin-right: rem(horizontalSpacing(desktop)*3);
+}
+.spacing--quad-right {
+  margin-right: rem(horizontalSpacing(desktop)*4);
+}
+
+/**
+ * Padding
+ */
+.padding {
+    padding: rem(verticalSpacing(mobile));
+    @include media('>large') {
+        padding: rem(verticalSpacing(desktop));
+    }
+}
+.padding-top {
+    padding-top: rem(verticalSpacing(mobile));
+    @include media('>large') {
+        padding-top: rem(verticalSpacing(desktop));
+    }
+}
+.padding-top--double {
+    padding-top: rem(verticalSpacing(mobile)*2);
+    @include media('>large') {
+        padding-top: rem(verticalSpacing(desktop)*2);
+    }
+}
+.padding-bottom {
+  padding-bottom: rem(verticalSpacing(mobile));
+  @include media('>large') {
+      padding-bottom: rem(verticalSpacing(desktop));
+  }
+}
+.padding-bottom--until-medium {
+  @include media('<medium') {
+      padding-bottom: rem(verticalSpacing(mobile));
+  }
+}
+.padding-bottom--double {
+    padding-bottom: rem(verticalSpacing(mobile)*2);
+    @include media('>large') {
+        padding-bottom: rem(verticalSpacing(desktop)*2);
+    }
+}
+.padding-bottom--quad {
+    padding-bottom: rem(verticalSpacing(mobile)*4);
+    @include media('>large') {
+        padding-bottom: rem(verticalSpacing(desktop)*4);
+    }
+}
+.padding--half {
+    padding: rem(verticalSpacing(mobile)/2);
+    @include media('>large') {
+        padding: rem(verticalSpacing(desktop)/2);
+    }
+}
+.padding--one-and-half {
+    padding: rem(verticalSpacing(mobile)*1.5);
+    @include media('>large') {
+        padding: rem(verticalSpacing(desktop)*1.5);
+    }
+}
+.padding--double {
+    padding: rem(verticalSpacing(mobile)*2);
+    @include media('>large') {
+        padding: rem(verticalSpacing(desktop)*2);
+    }
+}
+
+.padding--double-until-xlarge {
+  padding: rem(verticalSpacing(mobile)*2);
+  @include media('>large') {
+      padding: rem(verticalSpacing(desktop)*1.5);
+    }
+  @include media('>xlarge') {
+    padding: rem(verticalSpacing(desktop));
+  }
+}
+
+.padding--bottom--double-until-xlarge {
+    @include media('<xlarge') {
+        padding-bottom: rem(verticalSpacing(desktop)*2);
+    }
+}
+.no-pad--left {
+    padding-left: 0;
+}
+.no-pad--right {
+    padding-right: 0;
+}
+.no-pad--top {
+    padding-top: 0;
+}
+.no-pad--bottom {
+    padding-bottom: 0;
+}
+
+/**
+ * Spacing for the top of pages without heros
+ */
+.page-level--top-spacing {
+    margin-top: rem(26);
+    @include media('>xlarge') {
+        margin-top: rem(34);
+    }
+    @include media('>xxlarge') {
+        margin-top: rem(58);
+    }
+}

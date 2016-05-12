@@ -1,11 +1,65 @@
 // uses px width / base font width to return a value in em units
+// http://include-media.com/
 
 $breakpoints: (
-  xsmall:  ((300 / 16) * 1em),
-  small:   ((400 / 16) * 1em),
-  medium:  ((500 / 16) * 1em),
-  large:   ((750 / 16) * 1em),
-  xlarge:  ((950 / 16) * 1em),
-  xxlarge: ((1100 / 16) * 1em),
-  xxxlarge: ((1300 / 16) * 1em)
+    xsmall:   ((300 / 16) * 1em),
+    small:    ((400 / 16) * 1em),
+    medium:   ((500 / 16) * 1em),
+    large:    ((750 / 16) * 1em),
+    mlarge:   ((850 / 16) * 1em),
+    xlarge:   ((950 / 16) * 1em),
+    xxlarge:  ((1100 / 16) * 1em),
+    xxxlarge: ((1300 / 16) * 1em)
 );
+
+
+/**
+ * These values will not show up in content, but can be
+ * queried by JavaScript to know which breakpoint is active.
+ * Add or remove as many breakpoints as you like.
+ *
+ * Reference: https://www.lullabot.com/articles/importing-css-breakpoints-into-javascript
+ */
+#main:before {
+    display: none; /* Prevent from displaying. */
+}
+@include media('>xsmall') {
+    #main:before {
+        content: "xsmall";
+    }
+}
+@include media('>small') {
+    #main:before {
+        content: "small";
+    }
+}
+@include media('>medium') {
+    #main:before {
+        content: "medium";
+    }
+}
+@include media('>large') {
+    #main:before {
+        content: "large";
+    }
+}
+@include media('>mlarge') {
+    #main:before {
+        content: "mlarge";
+    }
+}
+@include media('>xlarge') {
+    #main:before {
+        content: "xlarge";
+    }
+}
+@include media('>xxlarge') {
+    #main:before {
+        content: "xxlarge";
+    }
+}
+@include media('>xxlarge') {
+    #main:before {
+        content: "xxlarge";
+    }
+}

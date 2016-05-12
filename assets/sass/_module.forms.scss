@@ -1,35 +1,49 @@
+/*------------------------------------*\
+    $FORM ELEMENTS
+\*------------------------------------*/
+
+$input-height: rem(33);
+
 input[type="checkbox"],
 input[type="radio"] {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
-.checkbox-row {
-    display: flex;
-    align-items: center;
-    input[type="checkbox"] {
-        margin-right: 10px;
-        cursor: pointer;
-    }
-    label {
-        cursor: pointer;
-    }
+input[type="checkbox"] {
+  width: rem(15);
+  height: rem(15);
+}
+
+.inline-form-element--row {
+  display: flex;
+  align-items: center;
+  input[type="checkbox"], input[type="radio"] {
+    margin-right: rem(10);
+    cursor: pointer;
+  }
+  label {
+    cursor: pointer;
+  }
 }
 
 fieldset {
-	margin: 0;
-	padding: 0.75em;;
-	border: 1px solid silver;
+  margin: 0;
+  padding: 0;
+  border: none;
 }
 
 legend {
-	-webkit-padding-start: 0;
-	-webkit-padding-end: 0;
-	padding-left: 0.5em;
-	padding-right: 0.5em;
+  -webkit-padding-start: 0;
+  -webkit-padding-end: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
-.input {
-  &--full {
-    width: 100%;
+
+label {
+  display: block;
+  &.inline {
+    display: inline-block;
+    margin-right: rem(8);
   }
 }
 
@@ -48,60 +62,87 @@ input[type="week"],
 input[type="date"],
 input[type="datetime"],
 input[type="datetime-local"] {
-  height: rem(33);
-  //@include type-sans-xs;
+  height: $input-height;
+  @include type-beta--xs;
   padding: rem(2) rem(7);
-  border: 1px solid $alpha-border-color;
+  border: $border--default;
   background-color: white;
   transition: box-shadow .15s ease, border .15s ease;
   box-sizing: border-box;
   appearance: none;
-  border-radius: rem(2) 0 0 rem(2);
+  border-radius: 0;
+  @include media('>medium') {
+    max-width: rem(350);
+  }
   &:focus {
     outline: none;
     box-shadow: 0 0 3px 1px #c0e0e7;
   }
-
   &::-webkit-input-placeholder {
-     color: $alpha-placeholder-color;
+    color: silver;
   }
-
   &:-moz-placeholder { /* Firefox 18- */
-    color: $alpha-placeholder-color;
+    color: silver;
   }
 
   &::-moz-placeholder {  /* Firefox 19+ */
-    color: $alpha-placeholder-color;
+    color: silver;
   }
-
   &:-ms-input-placeholder {
-    color: $alpha-placeholder-color;
+    color: silver;
+  }
+  &.input--large {
+    padding: rem(8) $pad-half;
+    height: auto;
   }
 }
 
 input[type="search"] {
-  -webkit-appearance:none;
-  -webkit-border-radius:0;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
   &::-webkit-search-cancel-button,
   &::-webkit-search-results-button,
   &::-webkit-search-decoration,
   &::-webkit-search-results-decoration {
-    -webkit-appearance:none;
+    -webkit-appearance: none;
   }
-}
-
-input[type="checkbox"] {
-  -webkit-appearance: none;
-  background-color: #fff;
-  border: 1px solid silver;
-  width: 15px;
-  height: 15px;
 }
 
 input[type="month"],
 input[type="time"],
 input[type="week"] {
   font-family: monospace;
+}
+
+select[size],
+select[multiple] {
+  height: auto;
+}
+
+select[size="0"],
+select[size="1"] {
+  height: 2.5em;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+select,
+select[size="0"],
+select[size="1"] {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: rem(13);
+  height: $input-height;
+}
+
+textarea {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  resize: vertical;
+  min-height: rem(150);
 }
 
 select[disabled],
@@ -123,86 +164,64 @@ input[type="datetime-local"][disabled] {
   color: lightgray;
 }
 
-
-select[size],
-select[multiple] {
-  height: auto;
-}
-
-textarea {
-  min-height: rem(200);
-}
-
-select[size="0"],
-select[size="1"] {
-  height: 2.5em;
-}
-
-select::-ms-expand {
-    display: none;
-}
-
-/**
- * Line up checkboxs/radios with label text even if label wraps.
- */
-.input-label-lockup {
-  position: relative;
-  > input {
-    position: absolute;
-    left: 0;
-    top: rem(2);
-  }
-  > label {
-    display: inline-block;
-    padding-left: rem(24);
-  }
-}
-
-label {
-	display: block;
-
-  &.inline {
-    display: inline-block;
-    margin-right: rem(8);
-  }
-
-
-}
-
-select,
-select[size="0"],
-select[size="1"] {
-  //@include font-secondary;
-  padding-right: 2em;
-  border-radius: 0;
-  box-shadow: none;
-  background-repeat: no-repeat;
-  background-image: url(/images/general/arrow-down-gray-dk.svg);
-  background-position: right rem(10) center;
-  background-size: rem(11);
-  font-size: rem(13);
-  line-height: 1.2;
-  height: rem(33);
-}
-
-textarea {
-	width: 100%;
-	height: auto;
-	max-width: 100%;
-}
-
 // Disable cursor on any input thats disabled.
 input[disabled] ~ label {
   cursor: default;
 }
-
-// Remove default fieldset styles.
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
+input[type="text"] {
+  border: $border--default;
+  width: 50%;
+  &:focus {
+    border: solid 1px $base-color;
+  }
 }
-// Allow only vertical resizing of textareas.
+input[type="text"].form__error--style {
+  border: solid 1px $red;
+  &:focus {
+    border: solid 1px $base-color;
+  }
+}
 textarea {
-  resize: vertical;
+  border: $border--default;
+  padding: $pad-half;
+  &:focus {
+    border: solid 1px $base-color;
+  }
+}
+input[type="checkbox"] {
+  border: $border--default;
+  & + label {
+    display: inline-block;
+  }
+  // &:checked {
+  //   background:url("{{> atoms-icon-check}}") center center no-repeat;
+  // }
+}
+
+input[type="radio"] {
+  border: $border--default;
+  & + label {
+    display: inline-block;
+  }
+  // &:checked {
+  //   background:url("{{> atoms-icon-dot}}") center center no-repeat;
+  // }
+}
+.form__select select {
+    -webkit-appearance: none;
+}
+select {
+  background-image: url(/images/selected-state.svg);
+  background-repeat: no-repeat;
+  background-position: right rem(10) center;
+  background-size: rem(15);
+  border-radius: rem(1);
+  width: 286px;
+  border: $border--default;
+}
+input[type="reset"] {
+  background-color: $white;
+  border: none;
+  color: $base-color;
+  padding-left: $pad-and-half;
 }

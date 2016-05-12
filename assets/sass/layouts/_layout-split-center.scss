@@ -1,0 +1,29 @@
+.layout-split-center {
+    display: flex;
+    flex-wrap: wrap;
+    & > .column {
+        width: 100%;
+    }
+    @include media ('>large') {
+        flex-wrap: nowrap;
+        justify-content: center;
+        & > .column {
+            width: 50%;
+        }
+    }
+}
+.layout-split-center--flex {
+    display: flex;
+    flex-wrap: wrap;
+    & > .column {
+        width: 100%;
+    }
+    @include media ('>large') {
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        & > .column {
+            width: 50%;
+        }
+    }
+}

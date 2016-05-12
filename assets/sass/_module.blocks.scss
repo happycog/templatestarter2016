@@ -1,0 +1,157 @@
+/*------------------------------------*\
+    $BLOCKS
+\*------------------------------------*/
+
+/**
+ * Block with inset heading (bottom left)
+ */
+.block__inset-heading-image-wrap {
+    &:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        background-color: $white;
+        height: 80%;
+        bottom: 0;
+        left: 0;
+        z-index: 0;
+    }
+}
+.block__inset-heading-image {
+    position: relative;
+    z-index: 10;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.block__inset-heading {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: $pad-half rem(15) rem(5) 0;
+    z-index: 15;
+}
+
+/**
+ * Step Block
+ */
+.step-block {
+    @include media('<=large') {
+        margin: 0 auto;
+    }
+}
+.step-block__image {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    padding-right: rem(60);
+    @include media('>=medium') {
+      height: rem(200);
+    }
+    svg {
+        display: block;
+        width: 100%;
+    }
+}
+
+// Return image
+.step-block__image--return {
+    margin-left: rem(30);
+}
+.step-block__image--full {
+    position: relative;
+    width: rem(200);
+    height: rem(200);
+    display: block;
+    @include media('<=large') {
+        margin: 0 auto;
+    }
+}
+.step-block__image-wrap {
+    @include media('<=medium') {
+        max-width: rem(250);
+    }
+    @include media('<=xlarge') {
+        max-width: rem(300);
+        margin: 0 auto;
+    }
+}
+.step-block__text {
+    @include media('<=medium') {
+        max-width: rem(300);
+        margin: 0 auto;
+    }
+}
+
+/**
+ * Event Block
+ */
+.block__event {
+    padding-bottom: rem(70);
+    @include media('>medium') {
+       min-height: rem(400);
+    }
+}
+.block__event__cta {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.block__date {
+    font-weight: 900;
+    background-color: $white;
+    display: inline-block;
+    padding: $pad-half;
+    line-height: 1;
+}
+.block__date__month {
+    font-size: rem(15);
+}
+.block__date__day {
+    font-size: rem(30);
+}
+.block__event--with-background {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba($black, .3);
+    }
+    @include media('<=small') {
+        &:before {
+            display: none;
+        }
+        background-image: none !important; // To overpower the inline style.
+    }
+}
+
+.js [data-filter-type] {
+    &.inactive {
+        display: none;
+    }
+    &.active {
+        display: flex;
+    }
+}
+
+/**
+ * Flexed to floated (flex layout to floated layout for text wrapping)
+ */
+.flex-to-float--xlarge {
+    display: flex;
+    align-items: center;
+    @include media('>xlarge') {
+        display: block;
+        .block__image {
+            float: left;
+            margin-bottom: $space-half;
+        }
+    }
+}

@@ -1,128 +1,31 @@
-.layout-split-4 {
-  @include outer-container;
-  & > .column {
-    @include span-columns(1 of 1);
-  }
-  @include media('>large', '<xlarge') {
-    & > .column:nth-child(1),
-    & > .column:nth-child(2) {
-      margin-top: 0;
+.layout-split-1-2-3-4--flex {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    > .column {
+      width: 100%;
+      display: flex;
+      align-items: stretch;
+      margin-bottom: rem(gutter(mobile)*2);
     }
-    & > .column {
-      @include span-columns(1 of 2);
-      @include omega(2n);
-    }
-    & > .column.col-double {
-      @include span-columns(1 of 1);
-    }
-  }
-  @include media('>xlarge') {
-    & > .column:nth-child(1),
-    & > .column:nth-child(2),
-    & > .column:nth-child(3),
-    & > .column:nth-child(4) {
-      margin-top: 0;
-    }
-    & > .column {
-      @include span-columns(1 of 4);
-      @include omega(4n);
-    }
-    & > .column.col-double {
-      @include span-columns(2 of 4);
-    }
-  }
-  @media print {
-    & > .column:nth-child(1),
-    & > .column:nth-child(2) {
-      margin-top: 0;
-    }
-    & > .column {
-      @include span-columns(2 of 4);
-      @include omega(2n);
-    }
-  }
-}
-.layout-split-4.layout-small-screen-zig-zag {
-  @include media('<medium') {
-    & > .column:nth-child(n+2) {
-      margin-top: rem(10);
-    }
-  }
-  @include media('>medium', '<xlarge') {
-    & > .column {
-      width: 50%;
-    }
-    & > .column:nth-child(3),
-    & > .column:nth-child(4) {
-      margin-top: rem(verticalSpacing(mobile)*1.5);
-    }
-    .media-block-content {
-      order: 2;
-      padding-left: 10px;
-    }
-  }
-}
-// Added due to custom css for this secton.
-.spacing-media-b .layout-split-4.layout-small-screen-zig-zag {
-  @include media('>medium', '<large') {
-    & > .column {
-      .media-block {
-        align-items: flex-start;
-        .media-block-content {
-          margin-top: 0;
+    @include media('>small') {
+        > .column {
+          width: 50%;
         }
-      }
     }
-  }
-}
-.layout-small-screen-zig-zag {
-  // built for layout-split-4
-  & > .column:nth-child(3) .media-block,
-  & > .column:nth-child(4) .media-block {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include media('>large') {
+        > .column {
+          width: 33.3333%;
+        }
+    }
     @include media('>xlarge') {
-      display: block;
+        > .column {
+          width: 25%;
+        }
     }
-    .media-block-img-wrap {
-      width: 50%;
-      order: 2;
-      @include media('>xlarge') {
-        width: 100%;
-      }
+    @include media('>xxlarge') {
+        > .column {
+            margin-bottom: rem(gutter(desktop)*4);
+        }
     }
-    .media-block-content {
-      padding-right: 10px;
-      width: 50%;
-      @include media('>xlarge') {
-        padding-right: 0;
-        width: inherit;
-      }
-    }
-  }
-  & > .column:nth-child(1) .media-block,
-  & > .column:nth-child(2) .media-block {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    @include media('>xlarge') {
-      display: block;
-    }
-    .media-block-img-wrap {
-      width: 50%;
-      @include media('>xlarge') {
-        width: 100%;
-      }
-    }
-    .media-block-content {
-      padding-left: 10px;
-      width: 50%;
-      order: 2;
-      @include media('>xlarge') {
-        padding-right: 0;
-        width: inherit;
-      }
-    }
-  }
 }

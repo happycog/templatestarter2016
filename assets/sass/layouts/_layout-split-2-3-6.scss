@@ -1,0 +1,51 @@
+/*
+$q-small-down = 2 Columns
+$q-medium-to-xlarge = 3 Columns
+$q-xlarge above = 6 Columns
+ */
+
+.layout-split-2-3-6 {
+    @include clearfix();
+
+    @include media('<medium') {
+        & > .column:nth-child(1),
+        & > .column:nth-child(2) {
+            margin-top: 0;
+        }
+
+        & > .column {
+            @include span-columns(1 of 2);
+            @include omega(2n);
+        }
+    }
+
+    @include media('>medium', '<xlarge') {
+        & > .column:nth-child(1),
+        & > .column:nth-child(2),
+        & > .column:nth-child(3) {
+            margin-top: 0;
+        }
+
+        & > .column {
+            @include span-columns(1 of 3);
+            @include omega(3n);
+        }
+
+    }
+
+    @include media('>xlarge') {
+        & > .column:nth-child(1),
+        & > .column:nth-child(2),
+        & > .column:nth-child(3),
+        & > .column:nth-child(4),
+        & > .column:nth-child(5),
+        & > .column:nth-child(6) {
+            margin-top: 0;
+        }
+
+        & > .column {
+            @include span-columns(1 of 6);
+            @include omega(6n);
+        }
+    }
+}

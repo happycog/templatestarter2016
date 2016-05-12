@@ -1,25 +1,44 @@
+/*------------------------------------*\
+    $DISPLAY STATES
+\*------------------------------------*/
+
+/**
+ * Display classes
+ */
+.display--none {
+  display: none;
+}
+.display--block {
+  display: block;
+}
+.display--inline-block {
+  display: block;
+}
+
+/**
+ * Viewport specific displaying
+ */
 [class^='show-at'] {
   display: none;
 }
 
 .show-at-small {
   display: block;
-
   @include media('>large') {
     display: none;
   }
 }
 
 .show-at-medium,
-.show-at-medium-inline,
-.show-at-medium-inline-block,
+.show-at-medium--inline,
+.show-at-medium--inline-block,
 .show-at-large,
-.show-at-large-inline-block,
+.show-at-large--inline-block,
 .show-at-xlarge,
-.show-at-xlarge-inline,
-.show-at-xlarge-inline-b,
+.show-at-xlarge--inline,
+.show-at-xlarge--inline-block,
 .show-at-xxlarge,
-.show-at-xxlarge-inline {
+.show-at-xxlarge--inline {
   display: none;
 }
 
@@ -27,15 +46,12 @@
   .show-at-medium {
     display: block;
   }
-
-  .show-at-medium-inline {
+  .show-at-medium--inline {
     display: inline;
   }
-
-  .show-at-medium-inline-block {
+  .show-at-medium--inline-block {
     display: inline-block;
   }
-
   .show-until-medium {
     display: none;
   }
@@ -45,69 +61,80 @@
   .show-at-large {
     display: block;
   }
-
-  .show-at-large-inline {
+  .show-at-large--inline {
     display: inline;
   }
-
-  .show-at-large-inline-block {
+  .show-at-large--inline-block {
     display: inline-block;
   }
-
   .show-until-large {
     display: none;
   }
-
   .hide-at-large {
     display: none;
   }
 }
 
+@include media('>mlarge') {
+    .show-until-mlarge {
+      display: none;
+    }
+}
+
 .show-at-large-only {
   display: none;
-
   @include media('>large', '<xlarge') {
     display: block;
   }
 }
 
-
 .show-from-medium-to-xlarge {
   display: none;
-
   @include media('>medium', '<xlarge') {
     display: block;
   }
 }
 
-
 @include media('>xlarge') {
   .show-at-xlarge {
     display: block;
   }
-
-  .show-at-xlarge-inline {
+  .show-at-xlarge--inline {
     display: inline;
   }
-
-  .show-at-xlarge-inline-b {
+  .show-at-xlarge--inline-block {
     display: inline-block;
   }
-
   .show-until-xlarge {
     display: none;
   }
 }
+
 @include media('>xxlarge') {
   .show-at-xxlarge {
     display: block;
   }
-
-  .show-at-xxlarge-inline {
+  .show-at-xxlarge--inline {
     display: inline;
   }
-
   .show-until-xxlarge {
     display: none;
   }
+}
+
+/**
+ * Completely remove from the flow but leave available to screen readers.
+ */
+@mixin visuallyhidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+.visuallyhidden {
+  @include visuallyhidden;
 }

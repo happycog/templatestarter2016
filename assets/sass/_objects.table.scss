@@ -1,0 +1,19 @@
+table {
+  padding: rem(10);
+  width: 100%;
+}
+
+th {
+  background-color: $background-color--beta;
+  text-align: left;
+  padding: $pad-half;
+  text-transform: uppercase;
+  color: $white;
+}
+
+
+td {
+  padding: $pad-half;
+  border-bottom: $border--default;
+  color: $text-color--alpha;
+}

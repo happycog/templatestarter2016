@@ -1,0 +1,114 @@
+/*------------------------------------*\
+    $COLORS
+\*------------------------------------*/
+
+/**
+ * Global Colors
+ */
+$yellow: #ffff00;
+$gray--light: #f4f4f4;
+$gray--medium: #7a7a7a;
+$gray--dark: #232323;
+$red: #ee3124;
+
+$gray--border: #d0d0d0;
+$gray--border--light: #f4f4f4;
+
+$border--default: 1px solid $gray--border;
+$text-color--default: $gray--dark;
+
+
+
+/**
+ * Background colors
+ */
+.background-color--black {
+    background-color: #000;
+}
+.background-color--white {
+    background-color: $white;
+}
+.background-color--alpha {
+    background-color: $background-color--alpha;
+}
+.background-color--beta {
+    background-color: $background-color--beta;
+}
+.background-color--yellow {
+    background-color: $yellow;
+}
+.background-color--gray--light {
+    background-color: $gray--light;
+}
+
+/**
+ * Text colors
+ */
+.text-color--black {
+    color: $black;
+}
+.text-color--white {
+    color: $white;
+}
+.text-color--gray {
+    color: $gray--medium;
+}
+.text-color--gray--dark {
+    color: $gray--dark;
+}
+.text-color--red{
+    color: $red;
+}
+.text-color--alpha {
+    color: $text-color--alpha;
+}
+.text-color--beta {
+    color: $text-color--beta;
+}
+.text-color-small-screens--alpha {
+  @include media('<medium') {
+    color: $text-color--alpha;
+  }
+}
+.text-color-small-screens--beta {
+  @include media('<medium') {
+    color: $text-color--beta;
+  }
+}
+
+/**
+ * Link colors, see _objects.links.scss
+ */
+
+/**
+ * Fill colors
+ */
+.fill-color--white,
+.fill-color--white path {
+    fill: $white;
+}
+a:focus .fill-color-hover--white,
+a:focus .fill-color-hover--white path,
+a:hover .fill-color-hover--white,
+a:hover .fill-color-hover--white path {
+    fill: $white;
+}
+.fill-color--alpha,
+.fill-color--alpha path {
+    fill: $fill-color--alpha;
+}
+.fill-color--beta,
+.fill-color--beta path {
+    fill: $fill-color--beta;
+}
+
+/**
+ * Hover colors
+ */
+ .hover-color--white {
+   a {
+     &:hover {
+     color:white;
+   }
+   }
+ }

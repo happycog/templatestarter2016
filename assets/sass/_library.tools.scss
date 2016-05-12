@@ -1,0 +1,142 @@
+/*------------------------------------*\
+    $HANDY TOOLS
+\*------------------------------------*/
+
+// Powerful utility classes to be applied directly to the element. These
+// should be more powerful then default styled BEM helper classes and should
+// map specifically to CSS .property--value.
+
+/**
+ * Clearfix
+ */
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.cursor--pointer {
+    cursor: pointer;
+}
+.text-transfom--uppercase {
+    text-transform: uppercase;
+}
+.position--relative {
+    position: relative;
+}
+.float--right {
+    float: right;
+}
+.float--left {
+    float: left;
+}
+.clear--both {
+    clear: both;
+}
+.vertical-align--middle {
+    vertical-align: middle;
+}
+.vertical-align--bottom {
+    vertical-align: bottom;
+}
+.overflow--hidden {
+    overflow: hidden;
+}
+.overflow-y--hidden {
+    overflow-y: hidden;
+}
+.text-align--center {
+    text-align: center;
+}
+.text-align--left {
+    text-align: left;
+}
+.text-align--right {
+    text-align: right;
+}
+.display--inline-block {
+    display: inline-block;
+}
+.font-weight--normal {
+    font-weight: normal;
+}
+.text-decoration--underline {
+    text-decoration: underline;
+}
+.text-decoration--none {
+    text-decoration: none;
+}
+.white-space--nowrap {
+    white-space: nowrap;
+}
+.width--full {
+    width: 100%;
+}
+.background--cover {
+    background-size: cover;
+}
+.background--center {
+    background-position: center center;
+}
+
+// Non-BEM syntax helper classes
+.center-block {
+    margin-left: auto;
+    margin-right: auto;
+}
+.round {
+    border-radius: 50%;
+}
+
+
+/**
+ * Intrinsic ratios
+ */
+@mixin intrinsic-ratio($width, $height) {
+    position: relative;
+    &:before{
+        display: block;
+        content: " ";
+        width: 100%;
+        padding-top: ($height / $width) * 100%;
+    }
+    > .intrinsic-ratio--stretch {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+// 1:1
+.intrinsic-ratio--1-1 {
+    @include intrinsic-ratio(1, 1)
+}
+.intrinsic-ratio--16-9 {
+    @include intrinsic-ratio(16, 9)
+}
+
+
+/**
+ * Vertical centering
+ */
+.center--vertically {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translate(0, -50%);
+}
+
+
+.max-width--1000 {
+  max-width: rem(1000);
+  margin-left: auto;
+  margin-right: auto;
+}
+.min-height--700 {
+  min-height: rem(700);
+  margin-left: auto;
+  margin-right: auto;
+}

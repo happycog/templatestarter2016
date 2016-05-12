@@ -9,7 +9,7 @@
 $column: 90px;
 $gutter: 10px;
 $grid-columns: 12;
-$max-width: em(1262);
+$max-width: em(1260);
 
 
 // Legacy Grid Implementation
@@ -19,27 +19,48 @@ $legacy-grid-support: false; // Grid support for legacy browsers
 $fixed-gutters: true; // Set to to false for percentaged based gutters
 
 @if $fixed-gutters == true {
-	$gutter: 0px;
+    $gutter: 0px;
 }
 
 
 // uses page(key) function
 $page: (
-	mobile: 10,
-	desktop: 25
+    mobile: 10,
+    desktop: 25
 );
 
 
 // uses gutter(key) function
 $gutters: (
-	mobile: 10,
-	desktop: 10,
-	super: 10
+    mobile: 10,
+    desktop: 10,
+    super: 10
 );
 
 
 // uses verticalSpacing(key) function
 $verticalSpacing: (
-  mobile: 10,
+  mobile: 14,
   desktop: 20
 );
+
+// uses horizontalSpacing(key) function
+$horizontalSpacing: (
+  mobile: 5,
+  desktop: 10
+);
+
+
+/**
+ * Default Spacing/Padding
+ */
+$space: rem(20);
+$space-and-half: $space*1.5;
+$space-double: $space*2;
+$space-quad: $space*4;
+$space-half: $space/2;
+$pad: rem(20);
+$pad-and-half: $pad*1.5;
+$pad-double: $pad*2;
+$pad-half: $pad/2;
+$pad-quarter: $pad/4;

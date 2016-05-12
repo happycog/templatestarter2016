@@ -20,7 +20,7 @@ module.exports = function(grunt) {
             },
             dev: {
                 files: {
-                    'public/css/base.css': 'assets/sass/base.scss',
+                    'public/css/screen.css': 'assets/sass/config.imports',
                 }
             }
         },
@@ -30,8 +30,8 @@ module.exports = function(grunt) {
                 options: {
                     replace: false
                 },
-                src: 'public/css/base.css',
-                dest: 'public/css/base.css'
+                src: 'public/css/screen.css',
+                dest: 'public/css/screen.css'
             }
         },
 

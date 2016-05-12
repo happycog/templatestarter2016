@@ -1,0 +1,18 @@
+/**
+ * Split three-column layout with 50% center column.
+ */
+.layout-split-3--25-50-25 {
+    @include media('>large') {
+        display: flex;
+        align-items: flex-start;
+        & > .column:nth-child(1),
+        & > .column:nth-child(3) {
+            width: 25%;
+            margin-top: 0;
+        }
+        & > .column:nth-child(2) {
+            width: 50%;
+            margin-top: 0;
+        }
+    }
+}

@@ -1,4 +1,14 @@
-// function to access $gutters map
+/*------------------------------------*\
+    $Sass Maps
+\*------------------------------------*/
+
+// For more information on Sassy Maps, please see:
+// https://github.com/at-import/Sassy-Maps
+
+
+/**
+ * Function to access $gutters map
+ */
 @function gutter($key: mobile) {
   @if map-has-key($gutters, $key) {
     @return map-get($gutters, $key);
@@ -8,7 +18,9 @@
   @return null;
 }
 
-// function to access $verticalSpacing map
+/**
+ * Function to access $verticalSpacing map
+ */
 @function verticalSpacing($key: mobile) {
   @if map-has-key($verticalSpacing, $key) {
     @return map-get($verticalSpacing, $key);
@@ -18,7 +30,21 @@
   @return null;
 }
 
-// function to access $page map
+/**
+ * Function to access $horizontalSpacing map
+ */
+@function horizontalSpacing($key: mobile) {
+  @if map-has-key($horizontalSpacing, $key) {
+    @return map-get($horizontalSpacing, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $horizontalSpacing.";
+  @return null;
+}
+
+/**
+ * Function to access $page map
+ */
 @function page($key: mobile) {
   @if map-has-key($page, $key) {
     @return map-get($page, $key);
@@ -28,7 +54,9 @@
   @return null;
 }
 
-// function to access $lh map
+/**
+ * Function to access $lh map
+ */
 @function lh($key: mobile) {
   @if map-has-key($lh, $key) {
     @return map-get($lh, $key);
@@ -39,7 +67,9 @@
 }
 
 
-// function to access $input map
+/**
+ * Function to access $input map
+ */
 @function input($key: mobile) {
   @if map-has-key($input, $key) {
     @return map-get($input, $key);
@@ -49,7 +79,9 @@
   @return null;
 }
 
-// function to access $button map
+/**
+ * Function to access $button map
+ */
 @function button($key: mobile) {
   @if map-has-key($button, $key) {
     @return map-get($button, $key);

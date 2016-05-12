@@ -1,0 +1,246 @@
+/*------------------------------------*\
+    $NYC THEME TYPE STYLES
+\*------------------------------------*/
+
+// See _config.font-faces.scss to call in new typefaces
+$font-family--alpha: #{"'Overpass'", Helvetica, Arial, "'Droid Sans'", sans-serif};
+$font-family--beta: #{Helvetica, Arial, "'Droid Sans'", sans-serif};
+
+// Access $lh through the lh() function;
+$lh: (
+  mobile: 15,
+  desktop: 24,
+  super: 27
+);
+
+/**
+ * Standard paragraph
+ */
+@mixin p {
+    font-family: $font-family--beta;
+    font-size: rem(16);
+    line-height: rem(24);
+    font-weight: 500;
+    @include media('>large') {
+      font-size: rem(18);
+      line-height: rem(28);
+    }
+  @media print {
+    font-size: rem(12);
+    line-height: rem(15);
+  }
+}
+
+
+/**
+ * Primary type styles, type applied to heading copy
+ */
+
+// XX-Large Type - Primary
+@mixin type-alpha--xxl() {
+    font-family: $font-family--alpha;
+    font-size: rem(36);
+    line-height: rem(40);
+    font-weight: 800;
+    letter-spacing: rem(-1);
+    @include media('>large') {
+      font-size: rem(60);
+      line-height: rem(64);
+    }
+    @include media('>xlarge') {
+      font-size: rem(80);
+      line-height: rem(86);
+    }
+}
+
+// X-Large Type - Primary
+@mixin type-alpha--xl() {
+  font-family: $font-family--alpha;
+  font-size: rem(36);
+  line-height: rem(40);
+  font-weight: 700;
+  letter-spacing: rem(-1);
+  @include media('>large') {
+    font-size: rem(48);
+    line-height: rem(54);
+  }
+}
+// large type on Large and Xlarge screens
+@mixin type-alpha--xl--l--xl() {
+  @include type-alpha--xl;
+  @include media('>=large') {
+    @include type-alpha--l;
+  }
+  @include media('>xxlarge') {
+    @include type-alpha--xl;
+  }
+}
+
+// Large Type - Primary
+@mixin type-alpha--l() {
+  font-family: $font-family--alpha;
+  font-size: rem(30);
+  line-height: rem(34);
+  font-weight: 700;
+  letter-spacing: rem(-.25);
+  @include media('>large') {
+    font-size: rem(32);
+    line-height: rem(38);
+  }
+}
+
+// Medium Type - Primary
+@mixin type-alpha--m() {
+  font-family: $font-family--alpha;
+  font-size: rem(22);
+  line-height: rem(30);
+  font-weight: normal;
+  @include media('>large') {
+    font-size: rem(24);
+    line-height: rem(34);
+  }
+}
+
+// Medium Type Bold - Primary
+@mixin type-alpha--m--bold() {
+    @include type-alpha--m;
+    font-weight: 700;
+}
+
+// Medium Type Bold - Secondary
+@mixin type-alpha--m--bold--l() {
+  font-family: $font-family--alpha;
+  font-size: rem(22);
+  line-height: rem(30);
+  font-weight: 700;
+  @include media('>large') {
+    font-size: rem(32);
+    line-height: rem(38);
+  }
+}
+
+// Small Type - Primary
+@mixin type-alpha--s() {
+  font-family: $font-family--alpha;
+  font-size: rem(18);
+  line-height: rem(28);
+  font-weight: 500;
+}
+
+// Small Type Bold - Primary
+@mixin type-alpha--s--bold() {
+  @include type-alpha--s;
+  font-weight: 700;
+}
+
+// Small Type Mobile - Medium Type Desktop
+@mixin type-alpha--s--m() {
+  @include type-alpha--s;
+  @include media('>large') {
+    @include type-alpha--m;
+  }
+}
+
+// Small Type - Primary Uppercase
+@mixin type-alpha--s--uppercase() {
+  font-family: $font-family--alpha;
+  font-size: rem(14);
+  line-height: rem(18);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: rem(.75);
+  @include media('>large') {
+    font-size: rem(15);
+  }
+}
+
+// XSmall Type - Primary
+@mixin type-alpha--xs() {
+  font-family: $font-family--alpha;
+  font-size: rem(14);
+  line-height: rem(21);
+  font-weight: normal;
+}
+
+// XSmall Type - Small Type
+@mixin type-alpha--xs--s() {
+  font-family: $font-family--alpha;
+  font-size: rem(14);
+  line-height: rem(21);
+  font-weight: normal;
+  @include media('>large') {
+    font-size: rem(18);
+    line-height: rem(28);
+  }
+}
+
+
+/**
+ * Secondary type styles, type applied to body copy
+ */
+
+// Large Tyoe - Beta
+ @mixin type-beta--l() {
+   font-family: $font-family--beta;
+   font-size: rem(28);
+   line-height: rem(38);
+   font-weight: normal;
+   @include media('>large') {
+     font-size: rem(32);
+     line-height: rem(42);
+   }
+ }
+
+// Medium Type - Beta
+@mixin type-beta--m() {
+  font-family: $font-family--beta;
+  font-size: rem(20);
+  line-height: rem(30);
+  font-weight: normal;
+  @include media('>large') {
+    font-size: rem(24);
+    line-height: rem(34);
+  }
+}
+
+// Small Type - Beta
+@mixin type-beta--s() {
+  font-family: $font-family--beta;
+  font-size: rem(16);
+  line-height: rem(26);
+  font-weight: 500;
+  @include media('>large') {
+    font-size: rem(18);
+    line-height: rem(28);
+  }
+}
+
+// X-Small type - Beta
+@mixin type-beta--xs() {
+  font-family: $font-family--beta;
+  font-size: rem(13);
+  line-height: rem(20);
+  font-weight: 500;
+  @include media('>large') {
+    font-size: rem(15);
+    line-height: rem(23);
+  }
+}
+
+// Small type on smallscreens, xsmall type on large screens  - Beta
+@mixin type-beta--s--xs () {
+   font-size: rem(16);
+   line-height: rem(26);
+   font-family: $font-family--beta;
+  @include media('>medium') {
+      font-size: rem(15);
+      line-height: rem(23);
+  }
+}
+
+// X-Small type - Secondary
+@mixin type-beta--xxs() {
+  font-family: $font-family--beta;
+  font-size: rem(11);
+  line-height: rem(17);
+}

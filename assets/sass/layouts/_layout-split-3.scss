@@ -26,61 +26,33 @@
     }
 }
 
-.layout-small-screen-has-lead { // built for layout-split-3
-    & > .column:nth-child(1) {
-        padding-bottom: rem(verticalSpacing(mobile))*1.5;
-        margin-bottom: rem(verticalSpacing(mobile))*1.5;
-        @include media('>medium') {
-            border-bottom: none;
-            padding-bottom: 0;
-            margin-bottom: 0;
+.layout-split-3--flex {
+    @include media('>medium') {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        & > .column:nth-child(1),
+        & > .column:nth-child(2),
+        & > .column:nth-child(3) {
+            margin-top: 0;
+        }
+        & > .column {
+            width: 33.33333%;
         }
     }
-    & > .column:nth-child(2) .media-block {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        @include media('>medium') {
-            display: block;
-        }
-        .media-block-img-wrap {
-            width: 50%;
-            order: 2;
-            @include media('>medium') {
-                width: 100%;
-            }
-        }
-        .media-block-content {
-            padding-right: 10px;
-            width: 50%;
-            @include media('>medium') {
-                padding-right: 0;
-                width: inherit;
-            }
-        }
-    }
-    & > .column:nth-child(3) .media-block {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        @include media('>medium') {
-            display: block;
-        }
-        .media-block-img-wrap {
-            width: 50%;
-            @include media('>medium') {
-                width: 100%;
-            }
-        }
-        .media-block-content {
-            padding-left: 10px;
-            width: 50%;
-            order: 2;
-            @include media('>medium') {
-                padding-right: 0;
-                width: inherit;
-            }
-        }
+}
 
+/**
+ * 3x3 Grid
+ */
+.layout-split-3up-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    & > .column:nth-child(-n+3) {
+        margin-top: 0;
+    }
+    & > .column {
+        width: 33.33333%;
     }
 }

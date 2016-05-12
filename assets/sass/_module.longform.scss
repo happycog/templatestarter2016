@@ -1,26 +1,74 @@
-// Longform styles from type-sizes.scss
-// -------------------------------------------
-.longform {
-  h1, .alpha {  }
-  h2, .gamma {  }
-  h3, .epsilon {  }
-  h4, .eta {  }
-  h5, .iota {  }
-  h6, .kappa {  }
+/*------------------------------------*\
+    $LONGFORM
+\*------------------------------------*/
 
-  p { @include p; }
-  ul { @include p; }
-  ol { @include p; }
-  dt { @include p; }
-  dd { @include p; }
+// Longform styles from type-sizes.scss
+.longform {
+    h1 { @include type-alpha--xl }
+    h2 { @include type-alpha--l  }
+    h3 { @include type-alpha--m--bold }
+    h4 { @include type-alpha--s--uppercase }
+    h5 { @include type-alpha--s--bold }
+    h6 { }
+
+    h1, h2, h3, h4, h5, h6 {
+        
+    }
+
+    p { @include p; }
+    ul { @include p; }
+    ol { @include p; }
+    dt { @include p; }
+    dd { @include p; }
+
+
+    a:not(.button-link) {
+        color: $link-color--beta;
+        &:hover, &:focus {
+            color: $link-color-hover--beta;
+        }
+    }
+    blockquote {
+      @include type-alpha--l;
+      font-weight: 500;
+      color: $text-color--alpha;
+      small {
+          margin-top: $space-half;
+          display: block;
+          @include type-alpha--s;
+      }
+    }
+    p.type-alpha--s--bold {
+        @include type-alpha--s--bold;
+    }
+    figure.float--left {
+        float: none;
+        @include media('>medium') {
+            float: left;
+            padding-right: $pad;
+        }
+    }
+    figcaption {
+        @include type-beta--xs;
+    }
+    hr {
+        margin-top: rem(15);
+        margin-bottom: rem(15);
+        @include media('>=large') {
+            margin-top: rem(30);
+            margin-bottom: rem(30);
+        }
+    }
 }
 
 
+
+
+
 // Longform styles from type-styles.scss
-// -------------------------------------------
 ol, ul {
   .longform & {
-    overflow: hidden;
+    margin-left: $space;
     li > ol,
     li > ul {
       margin-top: rem(lh(mobile)/2);
@@ -42,28 +90,39 @@ ol, ul {
 ol {
   .longform & {
     counter-reset: li;
+    margin-left: 0;
     & > li {
       list-style: none;
-      padding-left: 1.25em;
+      padding-left: $pad-and-half;
       &:before {
-        content: counter(li)'.';
+        content: counter(li, decimal);
         counter-increment: li;
         position: absolute;
-        top: -1px;
+        top: rem(-1);
         left: 0;
+        @include type-beta--s;
+      }
+      & > ol > li {
+        &:before {
+            content: counter(li, lower-alpha);
+        }
+        & > ol > li {
+          &:before {
+              content: counter(li, lower-roman);
+          }
+        }
       }
     }
   }
 }
 ul {
-  .longform & {
-    li {
-      padding-left: 1em;
+    .longform & {
+        li {
+            list-style: disc;
+            padding-left: $pad-half;
+            li {
+                list-style-type: circle;
+            }
+        }
     }
-    @media print {
-      li {
-        list-style-type: disc;
-      }
-    }
-  }
 }

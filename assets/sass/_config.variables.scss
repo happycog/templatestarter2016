@@ -1,0 +1,67 @@
+/*------------------------------------*\
+    $BASE VARIABLES
+\*------------------------------------*/
+
+/**
+ * Theme colors
+ */
+$base-color: #303738;
+$light-gray: #a9a9a9;
+$green: #7ab55c;
+$red: red;
+$white: #fff;
+$black: #000;
+$white: #FFF;
+$red--bright: #ff0000;
+
+$gray--90: #444;
+$gray--80: darken(#fff, 80%);
+$gray--70: #666;
+$gray--60: darken(#fff, 60%);
+$gray--50: #999;
+$gray--40: darken(#fff, 40%);
+$gray--30: darken(#fff, 30%);
+$gray--20: #ddd;
+$gray--10: darken(#fff, 10%);
+$gray--00: #fff;
+
+$alpha-text-color: $base-color;
+$beta-text-color: lighten( $base-color, 10% );
+$alpha-link-color: $base-color;
+$alpha-link-color-hover: darken( $base-color, 10% );
+$alpha-divider-color: darken( $base-color, 20% );
+$alpha-border-color: $light-gray;
+$alpha-button-border: darken( $base-color, 20% );
+$alpha-button-background-color: $green;
+$alpha-button-text-color: white;
+$alpha-button-border-color-focus: red;
+$alpha-fill-color: red;
+$beta-fill-color: red;
+$beta-link-color: red;
+$beta-link-color-hover: red;
+$alpha-placeholder-color: $light-gray;
+$border--default: 1px solid $base-color;
+
+// Default text colors
+$text-color--default: $black;
+$text-color--alpha: $gray--80;
+$text-color--beta: $gray--50;
+$heading-color--alpha: $gray--90;
+
+// Background colors
+$background-color--alpha: $gray--90;
+$background-color--beta: $gray--40;
+
+// Fill colors
+$fill-color--alpha: $gray--90;
+$fill-color--beta: $gray--40;
+
+// Link colors
+$link-color--alpha: $gray--90;
+$link-color-hover--alpha: $gray--70;
+$link-color--beta: $gray--40;
+$link-color-hover--beta: $gray--90;
+$link-color-hover--gamma: $gray--90;
+
+// Border colors
+$border-color--alpha: $gray--90;

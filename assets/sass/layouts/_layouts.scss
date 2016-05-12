@@ -1,23 +1,53 @@
-// -------------------------------------------
-//  Layouts
-// -------------------------------------------
+/*------------------------------------*\
+    $LAYOUTS
+\*------------------------------------*/
 
-$disable-warnings: true; // disable deprecation warnings in neat
+$disable-warnings: true; // Disable deprecation warnings in neat.
 
-// Page Container
-// -------------------------------------------
-
-
-.page {
+/**
+ * Layout Container
+ */
+.layout-container {
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
   padding-left: rem(page(mobile));
   padding-right: rem(page(mobile));
-  overflow: hidden;
-
   @include media('>large') {
     padding-left: rem(page(desktop));
     padding-right: rem(page(desktop));
   }
+}
+.layout-container--xs {
+  max-width: rem(500);
+}
+.layout-container--s {
+  max-width: rem(650);
+}
+.layout-container--s-m {
+  max-width: rem(700);
+}
+.layout-container--m {
+  max-width: rem(800);
+}
+.layout-container--l {
+  max-width: rem(1000);
+}
+.layout-container--xl {
+  max-width: rem(1200);
+}
 
+/**
+ * Page Container
+ */
+.page {
+  padding-left: rem(page(mobile));
+  padding-right: rem(page(mobile));
+  overflow: hidden;
+  @include media('>large') {
+    padding-left: rem(page(desktop));
+    padding-right: rem(page(desktop));
+  }
   & > * {
     max-width: $max-width;
     margin-left: auto;
@@ -25,77 +55,108 @@ $disable-warnings: true; // disable deprecation warnings in neat
   }
 }
 
-// Fixed Gutters
-// -------------------------------------------
-
+/**
+ * Fixed Gutters
+ */
 @mixin column-gutters() {
-  padding-left: rem(gutter(mobile)/2);
-  padding-right: rem(gutter(mobile)/2);
-
-  @include media('>large') {
-    padding-left: rem(gutter(desktop)/2);
-    padding-right: rem(gutter(desktop)/2);
-
-    &.extra-left-gutter {
-      padding-left: rem(15);
+    padding-left: rem(gutter(mobile));
+    padding-right: rem(gutter(mobile));
+    &.match-spacing {
+        margin-bottom: rem(gutter(mobile)*2);
     }
-    &.extra-right-gutter {
-      padding-right: rem(15);
+    @include media('>xlarge') {
+        padding-left: rem(gutter(desktop));
+        padding-right: rem(gutter(desktop));
+        &.match-spacing {
+            margin-bottom: rem(gutter(desktop)*2);
+        }
+        &.extra-left-gutter {
+            padding-left: rem(25);
+        }
+        &.extra-right-gutter {
+            padding-right: rem(25);
+        }
+        .extra-left-gutter--l {
+            padding-left: rem(50);
+        }
+        .extra-right-gutter--l {
+            padding-right: rem(50);
+        }
     }
-  }
-
-  @include media('>xlarge') {
-    &.extra-large-right-gutter {
-      padding-right: rem(100);
+    @include media('>xxlarge') {
+        &:not(.no-xxlarge-gutter) {
+            padding-left: rem(gutter(desktop)*2);
+            padding-right: rem(gutter(desktop)*2);
+        }
+        &.extra-left-gutter {
+            padding-left: rem(45);
+        }
+        &.extra-right-gutter {
+            padding-right: rem(45);
+        }
+        .extra-left-gutter--l {
+            padding-left: rem(75);
+        }
+        .extra-right-gutter--l {
+            padding-right: rem(75);
+        }
+        &.extra-large-right-gutter {
+            padding-right: rem(250);
+        }
     }
-  }
-
-  @include media('>xxlarge') {
-    &.extra-left-gutter {
-      padding-left: rem(35);
+    &.no-gutters {
+        padding-left: 0;
+        padding-right: 0;
     }
-    &.extra-right-gutter {
-      padding-right: rem(35);
-    }
-    &.extra-large-right-gutter {
-      padding-right: rem(250);
-    }
-  }
 }
 
-[class^="layout-"] > .column,
+[class*="layout-split"] > .column,
 .column-full {
   @include column-gutters();
 }
 
 @mixin layout-in-column {
-  margin-left: -1 * rem(gutter(mobile)/2);
-  margin-right: -1 * rem(gutter(mobile)/2);
-
-  @include media('>large') {
-    margin-left: -1 * rem(gutter(desktop)/2);
-    margin-right: -1 * rem(gutter(desktop)/2);
-  }
+    margin-left: -1 * rem(gutter(mobile));
+    margin-right: -1 * rem(gutter(mobile));
+    @include media('>xlarge') {
+        margin-left: -1 * rem(gutter(desktop));
+        margin-right: -1 * rem(gutter(desktop));
+    }
+    @include media('>xxlarge') {
+        &:not(.no-xxlarge-gutter) {
+            margin-left: -1 * rem(gutter(desktop)*2);
+            margin-right: -1 * rem(gutter(desktop)*2);
+        }
+    }
 }
 
-.column [class^="layout-"],
+[class*="layout-split"],
 .column-full [class^="layout-"] {
   @include layout-in-column;
 }
 
+/**
+ * Flip column order
+ */
+.flip-columns {
+    & > .column:nth-child(1) {
+        order: 2;
+    }
+    & > .column:nth-child(2) {
+        order: 1;
+    }
+}
 
-// mixin for all splits
+// Mixin for all splits
 @mixin layout-split {
   @include outer-container;
-
   & > .column {
-      @include span-columns(1 of 1);
+    @include span-columns(1 of 1);
   }
-
   @include media('>medium') {
-      & > .column:nth-child(1),
-      & > .column:nth-child(2) {
-          margin-top: 0;
-      }
+    & > .column:nth-child(1),
+    & > .column:nth-child(2) {
+      margin-top: 0;
+    }
   }
 }
