@@ -1,14 +1,14 @@
 ## Happy Cog starter files
- - Does not include Patternlab, can be ported over easily
+ - Does not include "Patternlab":http://patternlab.io/, can be ported over easily
 
 ### Coding Style
 
-We follow Harry Robert's CSS Guidelines http://cssguidelin.es/
+We follow Harry Robert's "CSS Guidelines":http://cssguidelin.es/
 
-#### Typography
 
-- Text styles should be defined via classes on elements in the HTML, classes like `.type-alpha--xxl`
-- Text style classes should _never_ be extended with `@extend` in Sass, in general, please do not use `@extend`
+#### Naming Classes
+
+- Try to extract things you see repeating over and over into classes so you can reuse them for the sake of speed. We use an "Expressive CSS":http://johnpolacek.github.io/expressive-css/ BEM-hybrid approach: class names should be very descriptive and never abbreviated (ex. `.button` not `.btn`). Follow BEM syntax but map to the property/value if only one style is captured. ex. `.text-align--center`, `.position--relative`. Please review the `_library.tools.scss` partial to see whats written and available for reuse.
 
 
 #### Naming CSS Partials
@@ -18,10 +18,11 @@ We follow Harry Robert's CSS Guidelines http://cssguidelin.es/
 - `module.` is a small block of code that is indivisible
 - `object.` is a collection of modules or a module and other elements
 
+
 #### Breakpoints
 
 - See `_config.mediaqueries.scss`
-- We're using http://include-media.com/ to handle our media queries. Example usage is
+- We're using http://include-media.com/ to handle our media queries. Example usage:
 ```
 
 @include media('>large') {
@@ -39,7 +40,7 @@ We follow Harry Robert's CSS Guidelines http://cssguidelin.es/
 
 #### Spacing
 
-- See `library.spacing.scss`
+- See `_library.spacing.scss`
 - We're using the lobotomized owl technique for vertical spacing, meaning you should rarely is ever have to add margin-top/margin-bottom on elements for spacing. Instead, please add a class of `.spacing`, `.spacing--half`, `.spacing--double` etc to the elements parents in order to create space between elements. If you have to add a parent div strictly for spacing, that is completely acceptable.
 - We use the variable `$padding` to keep spacing around objects consistent
 
@@ -55,13 +56,11 @@ We follow Harry Robert's CSS Guidelines http://cssguidelin.es/
 
 #### Units of measure
 
-- Please use the `rem()` function for all units, it will print a px fallback ex. `font-size: rem(15);`
-
-#### Naming Classes
-
-- Try to extract things you see repeating over and over into classes so you can reuse them for the sake of speed. We use an Expressive CSS approach: class names should be very descriptive and never abbreviated. Follow bem syntax but map to the property/value if only one style is captured. ex. `.text-align--center`, `.position--relative`. Please review the `_library.tools.scss` partial to see whats written and available for reuse.
+- Please use the `rem()` function for all units (see `_config.map-fun.scss`), it will print a px fallback ex. `font-size: rem(15);`
 
 
-#### Classing all the things
+#### Typography
 
-- Please use BEM syntax if necessary, leverage expressive classes as much as possible (see `_library.tools.scss`).
+- See "Expressive CSS for Type":http://cognition.happycog.com/article/expressive-type-for-css and `_library.type-styles.scss`
+- Text styles should be defined once, captured in classes to be applied directly to the elements in the HTML, classes like `.type-alpha--xxl`
+- Text style classes should _never_ be extended with `@extend` in Sass, in general, please do not use `@extend`
