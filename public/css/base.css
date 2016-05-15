@@ -554,7 +554,7 @@ figcaption {
   display: block; }
 
 .display--inline-block {
-  display: block; }
+  display: inline-block; }
 
 /**
  * Viewport specific displaying
