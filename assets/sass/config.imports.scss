@@ -27,7 +27,9 @@ http://www.happycog.com/
 // mixin defined by Neat. We'd rather use `include-media` as our MQ library
 @import 'include-media/dist/include-media';
 
+@import 'config.variables';
 @import 'config.mediaqueries';
+@import 'config.font-faces';
 
 @import 'library.general';
 @import 'library.display';
