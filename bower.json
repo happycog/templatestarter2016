@@ -1,11 +1,6 @@
 {
   "name": "Happy Cog Template Project Start",
   "version": "0.0.1",
-  "homepage": "",
-  "authors": [
-    "Allison Wagner <alliwag@gmail.com>"
-  ],
-  "description": "",
   "private": true,
   "ignore": [
     "**/.*",

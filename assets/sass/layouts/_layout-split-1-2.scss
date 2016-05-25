@@ -1,154 +1,143 @@
 .layout-split-1-2 {
   @include outer-container;
-
   & > .column {
     @include span-columns(1 of 1);
   }
-
-  @include media('>large') {
-      & > .column {
-          @include span-columns(1 of 2);
-          @include omega(2n);
-      }
+  @include media (' > large') {
+    & > .column {
+      @include span-columns(1 of 2);
+      @include omega(2n);
+    }
     & > .column:nth-child(1),
     & > .column:nth-child(2) {
       margin-top: 0;
-
     }
   }
 }
-
 /**
  * Split 1-2 Flex
  */
 .layout-split-1-2--flex {
-    > .column {
-        width: 100%;
-        &:not(.no-flex) {
-            display: flex;
-            flex-wrap: wrap;
-            // img {
-            //   width: 100%; // fix for ie11 to allow images to shrink to the
-            //   flexed width of the child, commenting out for delivery today
-            //   because it's throwing an error in Chrome.
-            // }
-            }
-        }
-        @include media('>medium') {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: stretch;
-            & > .column:nth-child(1),
-            & > .column:nth-child(2) {
-                margin-top: 0;
-            }
-            & > .column {
-                width: 50%;
-            }
-        }
-        // Extend the existing split 1-2 styles to a 3 column format when
-        // appending this extension class.
-        &.layout-extension--split-3 {
-            @include media('>medium') {
-                & > .column:not(:nth-child(-n+2)) {
-                margin-top: rem(verticalSpacing(desktop));
-            }
-        }
-        @include media('>mlarge') {
-            & > .column:nth-child(3) {
-                margin-top: 0;
-            }
-            & > .column {
-                margin-top: 0;
-                width: 33.3333%;
-            }
-        }
+  > .column {
+    width: 100%;
+    &:not(.no-flex) {
+      display: flex;
+      flex-wrap: wrap;
     }
+  }
+  @include media (' > medium') {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    & > .column:nth-child(1),
+    & > .column:nth-child(2) {
+      margin-top: 0;
+    }
+    & > .column {
+      width: 50%;
+    }
+  }
+  // Extend the existing split 1-2 styles to a 3 column format when
+  // appending this extension class.
+  &.layout-extension--split-3 {
+    @include media (' > medium') {
+      & > .column:not(:nth-child(-n+2)) {
+        margin-top: rem(verticalSpacing(desktop));
+      }
+    }
+    @include media (' > mlarge') {
+      & > .column:nth-child(3) {
+        margin-top: 0;
+      }
+      & > .column {
+        margin-top: 0;
+        width: 33.3333%;
+      }
+    }
+  }
   // Extend the existing split 1-2 styles to a 4 column format when
   // appending this extension class.
   &.layout-extension--split-4 {
-    @include media('>medium', '<=xlarge') {
+    '<=xlarge'),
+    @include media (' > medium' {
       & > .column:last-child,
       & > .column:nth-last-child(2) {
         margin-top: rem(verticalSpacing(desktop));
       }
     }
-    @include media('>xlarge') {
-        & > .column:nth-child(1),
-        & > .column:nth-child(2),
-        & > .column:nth-child(3),
-        & > .column:nth-child(4) {
-          margin-top: 0;
-        }
+    @include media (' > xlarge') {
+      & > .column:nth-child(1),
+      & > .column:nth-child(2),
+      & > .column:nth-child(3),
+      & > .column:nth-child(4) {
+        margin-top: 0;
+      }
       & > .column {
         width: 25%;
       }
     }
   }
 }
-
 /**
  * Split 1-2 layout at the large breakpoint
  */
 .layout-split-1-2--at-large {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  > .column {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
-    > .column {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: stretch;
+  }
+  @include media (' > large') {
+    & > .column {
+      width: 50%;
     }
-    @include media('>large') {
-        & > .column {
-            width: 50%;
-        }
-    }
+  }
 }
-
 /**
  * Split 1-2 layout at the xlarge breakpoint
  */
 .layout-split-1-2--at-xlarge {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  > .column {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
-    > .column {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: stretch;
+  }
+  @include media (' > xlarge') {
+    & > .column {
+      width: 50%;
     }
-    @include media('>xlarge') {
-        & > .column {
-            width: 50%;
-        }
-    }
+  }
 }
-
 /**
  * Split 1-2 column layout, the first column is 45% wide, the second is 55%.
  */
 .layout-split-2--45-55 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  > .column {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
+  }
+  @include media (' > medium') {
     > .column {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: stretch;
+      margin-top: 0;
     }
-    @include media('>medium') {
-        > .column {
-            margin-top: 0;
-        }
-        > .column:nth-child(1) {
-            width: 45%;
-        }
-        > .column:nth-child(2) {
-            width: 55%;
-        }
+    > .column:nth-child(1) {
+      width: 45%;
     }
+    > .column:nth-child(2) {
+      width: 55%;
+    }
+  }
 }

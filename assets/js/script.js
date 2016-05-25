@@ -5,8 +5,6 @@
 -------------------------------------------*/
 $(document).ready(function() {
 
-  passwordFormValidation();
-
 });
 
 /*-------------------------------------------
@@ -14,6 +12,6 @@ $(document).ready(function() {
   All functions to be called after the full
   window is ready and rendered.
 -------------------------------------------*/
-$(window).ready(function(e) {
+$(window).ready(function() {
 
 });
