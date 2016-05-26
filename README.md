@@ -41,7 +41,7 @@ We follow Harry Robert's [CSS Guidelines](http://cssguidelin.es/)
 #### Spacing
 
 - See `_library.spacing.scss`
-- We're using the lobotomized owl technique for vertical spacing, meaning you should rarely is ever have to add margin-top/margin-bottom on elements for spacing. Instead, please add a class of `.spacing`, `.spacing--half`, `.spacing--double` etc to the elements parents in order to create space between elements. If you have to add a parent div strictly for spacing, that is completely acceptable.
+- We're using the lobotomized owl technique for vertical spacing, meaning you should rarely if ever have to add margin-top/margin-bottom on elements for spacing. Instead, please add a class of `.spacing`, `.spacing--half`, `.spacing--double` etc to the elements parents in order to create space between elements. If you have to add a parent div strictly for spacing, that is completely acceptable.
 - We use the variable `$padding` to keep spacing around objects consistent
 
 
