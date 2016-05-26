@@ -1,23 +1,20 @@
 /*------------------------------------*\
     $FORM ELEMENTS
 \*------------------------------------*/
-
 $input-height: rem(33);
-
 input[type="checkbox"],
 input[type="radio"] {
   vertical-align: middle;
 }
-
 input[type="checkbox"] {
   width: rem(15);
   height: rem(15);
 }
-
 .inline-form-element--row {
   display: flex;
   align-items: center;
-  input[type="checkbox"], input[type="radio"] {
+  input[type="checkbox"],
+  input[type="radio"] {
     margin-right: rem(10);
     cursor: pointer;
   }
@@ -25,20 +22,17 @@ input[type="checkbox"] {
     cursor: pointer;
   }
 }
-
 fieldset {
   margin: 0;
   padding: 0;
   border: none;
 }
-
 legend {
   -webkit-padding-start: 0;
   -webkit-padding-end: 0;
   padding-left: 0;
   padding-right: 0;
 }
-
 label {
   display: block;
   &.inline {
@@ -46,32 +40,31 @@ label {
     margin-right: rem(8);
   }
 }
-
-select,
-textarea,
-input[type="text"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
 input[type="email"],
+input[type="month"],
 input[type="number"],
 input[type="password"],
 input[type="search"],
 input[type="tel"],
-input[type="url"],
-input[type="month"],
+input[type="text"],
 input[type="time"],
+input[type="url"],
 input[type="week"],
-input[type="date"],
-input[type="datetime"],
-input[type="datetime-local"] {
+select,
+textarea {
   height: $input-height;
   @include type-beta--xs;
   padding: rem(2) rem(7);
   border: $border--default;
   background-color: white;
-  transition: box-shadow .15s ease, border .15s ease;
+  transition: box-shadow 0.15s ease, border 0.15s ease;
   box-sizing: border-box;
   appearance: none;
   border-radius: 0;
-  @include media('>medium') {
+  @include media (' > medium') {
     max-width: rem(350);
   }
   &:focus {
@@ -81,11 +74,12 @@ input[type="datetime-local"] {
   &::-webkit-input-placeholder {
     color: silver;
   }
-  &:-moz-placeholder { /* Firefox 18- */
+  &:-moz-placeholder {
+    /* Firefox 18- */
     color: silver;
   }
-
-  &::-moz-placeholder {  /* Firefox 19+ */
+  &::-moz-placeholder {
+    /* Firefox 19+ */
     color: silver;
   }
   &:-ms-input-placeholder {
@@ -96,38 +90,32 @@ input[type="datetime-local"] {
     height: auto;
   }
 }
-
 input[type="search"] {
   -webkit-appearance: none;
   -webkit-border-radius: 0;
   &::-webkit-search-cancel-button,
-  &::-webkit-search-results-button,
   &::-webkit-search-decoration,
+  &::-webkit-search-results-button,
   &::-webkit-search-results-decoration {
     -webkit-appearance: none;
   }
 }
-
 input[type="month"],
 input[type="time"],
 input[type="week"] {
   font-family: monospace;
 }
-
-select[size],
-select[multiple] {
+select[multiple],
+select[size] {
   height: auto;
 }
-
 select[size="0"],
 select[size="1"] {
   height: 2.5em;
 }
-
 select::-ms-expand {
   display: none;
 }
-
 select,
 select[size="0"],
 select[size="1"] {
@@ -136,7 +124,6 @@ select[size="1"] {
   font-size: rem(13);
   height: $input-height;
 }
-
 textarea {
   width: 100%;
   height: auto;
@@ -144,26 +131,24 @@ textarea {
   resize: vertical;
   min-height: rem(150);
 }
-
-select[disabled],
-textarea[disabled],
-input[type="text"][disabled],
+input[type="date"][disabled],
+input[type="datetime"][disabled],
+input[type="datetime-local"][disabled],
 input[type="email"][disabled],
+input[type="month"][disabled],
 input[type="number"][disabled],
 input[type="password"][disabled],
 input[type="search"][disabled],
 input[type="tel"][disabled],
-input[type="url"][disabled],
-input[type="month"][disabled],
+input[type="text"][disabled],
 input[type="time"][disabled],
+input[type="url"][disabled],
 input[type="week"][disabled],
-input[type="date"][disabled],
-input[type="datetime"][disabled],
-input[type="datetime-local"][disabled] {
+select[disabled],
+textarea[disabled] {
   background: silver;
   color: lightgray;
 }
-
 // Disable cursor on any input thats disabled.
 input[disabled] ~ label {
   cursor: default;
@@ -172,20 +157,20 @@ input[type="text"] {
   border: $border--default;
   width: 50%;
   &:focus {
-    border: solid 1px $base-color;
+    border: solid 1px $border--default;
   }
 }
 input[type="text"].form__error--style {
   border: solid 1px $red;
   &:focus {
-    border: solid 1px $base-color;
+    border: solid 1px $border--default;
   }
 }
 textarea {
   border: $border--default;
   padding: $padding-half;
   &:focus {
-    border: solid 1px $base-color;
+    border: solid 1px $border--default;
   }
 }
 input[type="checkbox"] {
@@ -197,7 +182,6 @@ input[type="checkbox"] {
   //   background:url("{{> atoms-icon-check}}") center center no-repeat;
   // }
 }
-
 input[type="radio"] {
   border: $border--default;
   & + label {
@@ -208,10 +192,10 @@ input[type="radio"] {
   // }
 }
 .form__select select {
-    -webkit-appearance: none;
+  -webkit-appearance: none;
 }
 select {
-  background-image: url(/images/selected-state.svg);
+  background-image: url("/images/selected-state.svg");
   background-repeat: no-repeat;
   background-position: right rem(10) center;
   background-size: rem(15);
@@ -222,6 +206,6 @@ select {
 input[type="reset"] {
   background-color: $white;
   border: none;
-  color: $base-color;
+  color: $border--default;
   padding-left: $padding-and-half;
 }
