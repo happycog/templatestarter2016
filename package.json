@@ -1,31 +1,31 @@
 {
-    "name": "Motivate",
-    "version": "0.0.1",
-    "description": "Motivate development framework",
-    "devDependencies": {
-        "csswring": "^4.0.0",
-        "grunt": "~0.4.5",
-        "grunt-autoprefixer": "^0.8.1",
-        "grunt-contrib-copy": "~0.6.0",
-        "grunt-contrib-imagemin": "~0.4.0",
-        "grunt-contrib-uglify": "*",
-        "grunt-contrib-watch": "^0.6.1",
-        "grunt-htmlhint": "0.9.12-fix",
-        "grunt-pixrem": "^0.1.2",
-        "grunt-sass": "^1.0.0",
-        "grunt-shell": "^1.1.2",
-        "matchdep": "*",
-        "node-sass": "^2.1.1"
-    },
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git@github.com:happycog/motivate-web.git"
-    },
-    "author": "Happy Cog",
-    "license": "none",
-    "homepage": "https://motivateco.com",
-    "compileTemplates": false
+  "name": "templatestarter2016",
+  "version": "0.0.1",
+  "homepage": "https://github.com/happycog/templatestarter2016",
+  "author": "Happy Cog",
+  "description": "Happy Cog Template starter files 2016",
+  "devDependencies": {
+    "csswring": "^4.0.0",
+    "grunt": "~0.4.5",
+    "grunt-autoprefixer": "^0.8.1",
+    "grunt-contrib-copy": "~0.6.0",
+    "grunt-contrib-imagemin": "~0.4.0",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-htmlhint": "0.9.12-fix",
+    "grunt-pixrem": "^0.1.2",
+    "grunt-sass": "^1.0.0",
+    "grunt-shell": "^1.1.2",
+    "matchdep": "*",
+    "node-sass": "^2.1.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:happycog/templatestarter2016.git"
+  },
+  "license": "none",
+  "compileTemplates": false
 }
