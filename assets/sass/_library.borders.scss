@@ -18,11 +18,11 @@
 .border-top--gray--under-xlarge {
     @include media('<xlarge') {
         border-top: 2px solid $gray--border;
-        padding-top: $padding-double;
+        padding-top: $pad-double;
     }
 }
 
 .border-bottom--gray {
   border-bottom: 2px solid $gray--border--light;
-  padding-bottom: $padding-half;
+  padding-bottom: $pad-half;
 }

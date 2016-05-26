@@ -172,20 +172,20 @@ input[type="text"] {
   border: $border--default;
   width: 50%;
   &:focus {
-    border: solid 1px $border--default;
+    border: solid 1px $base-color;
   }
 }
 input[type="text"].form__error--style {
   border: solid 1px $red;
   &:focus {
-    border: solid 1px $border--default;
+    border: solid 1px $base-color;
   }
 }
 textarea {
   border: $border--default;
   padding: $padding-half;
   &:focus {
-    border: solid 1px $border--default;
+    border: solid 1px $base-color;
   }
 }
 input[type="checkbox"] {
@@ -222,6 +222,6 @@ select {
 input[type="reset"] {
   background-color: $white;
   border: none;
-  color: $border--default;
+  color: $base-color;
   padding-left: $padding-and-half;
 }

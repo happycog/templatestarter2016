@@ -45,38 +45,6 @@ $link-color--beta: $gray--40;
 $link-color-hover--beta: $gray--90;
 $link-color-hover--gamma: $gray--90;
 
-// Alpha / Beta colors
-$color--alpha: $gray--90;
-$color--beta: $gray--40;
-
-// Alpha button
-$button-color--alpha: $gray--90;
-$button-color-hover--alpha: $gray--00;
-$button-border-color--alpha: $gray--90;
-$button-border-color-hover--alpha: $gray--90;
-$button-background-color--alpha: $gray--90;
-$button-background-color-hover--alpha: $gray--90;
-
-// Alpha button inverse
-$button-color--alpha--inverse: $gray--20;
-$button-border-color--alpha--inverse: $gray--20;
-$button-border-color-hover--alpha--inverse: $gray--20;
-$button-color-hover--alpha--inverse: $gray--00;
-$button-background-color--alpha--inverse: $gray--00;
-$button-background-color-hover--alpha--inverse: $gray--20;
-
-// Beta button
-$button-color--beta: $gray--00;
-$button-color-hover--beta: $gray--00;
-$button-background-color--beta: $gray--70;
-$button-background-color-hover--beta: $gray--90;
-
-// Gamma button
-$button-color--gamma: $white;
-$button-color-hover--gamma: $white;
-$button-background-color--gamma: $gray--70;
-$button-background-color-hover--gamma: $gray--90;
-
 // Border colors
 $border-color--alpha: $gray--90;
-$border--default: 1px solid $black;
+$border--default: 1px solid $base-color;

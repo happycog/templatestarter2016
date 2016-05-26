@@ -90,7 +90,7 @@ dd {
 // -------------------------------------------
 hr {
   border: none;
-  border-top: 1px solid $border-color--alpha;
+  border-top: 1px solid $alpha-divider-color;
 }
 // Block Elements
 pre {
@@ -128,10 +128,10 @@ cite {
 }
 
 a {
-  color: $link-color--alpha;
+  color: $alpha-link-color;
   transition: all 0.25s ease;
   &:hover,
   &:focus {
-    color: $link-color-hover--alpha;
+    color: $alpha-link-color-hover;
   }
 }
