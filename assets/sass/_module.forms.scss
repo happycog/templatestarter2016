@@ -64,7 +64,7 @@ textarea {
   box-sizing: border-box;
   appearance: none;
   border-radius: 0;
-  @include media (' > medium') {
+  @include media('>medium') {
     max-width: rem(350);
   }
   &:focus {
